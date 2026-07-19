@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Manrope:wght@300;400;500;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Manrope", sans-serif;
+
+  --color-rainforest: #0B3D2E;
+  --color-emerald-deep: #1E5D45;
+  --color-moss: #5B7F4F;
+  --color-teak: #4A3426;
+  --color-brass: #B9964B;
+  --color-stone: #8D8F86;
+  --color-lotus: #F2EFE7;
+}
+
+/* Custom background patterns and ambient glows */
+.rainforest-glow {
+  background: radial-gradient(circle at 50% 50%, rgba(30, 93, 69, 0.15) 0%, transparent 80%);
+}
+
+.mist-glow {
+  background: radial-gradient(circle at 10% 30%, rgba(242, 239, 231, 0.08) 0%, transparent 60%);
+}
+
+.brass-glow {
+  background: radial-gradient(circle at 80% 20%, rgba(185, 150, 75, 0.12) 0%, transparent 70%);
+}
+
+/* Translucent Frosted Glass Theme specifications */
+.frosted-glass {
+  background: rgba(242, 239, 231, 0.04);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(242, 239, 231, 0.12);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.08), 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.frosted-glass-light {
+  background: rgba(242, 239, 231, 0.1);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(242, 239, 231, 0.22);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.15), 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* Worn Stone / River Stone texture with high-fidelity micro-grain noise */
+.river-stone {
+  background-color: #8D8F86;
+  background-image: 
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 60%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(242, 239, 231, 0.18);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.1), 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* High-Fidelity Teak Wood Grain Texture */
+.texture-wood {
+  background: 
+    linear-gradient(90deg, rgba(74, 52, 38, 0.98), rgba(58, 38, 26, 0.99)),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='wood'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.008 0.35' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.29 0 0 0 0 0.20 0 0 0 0 0.15 0 0 0 0.22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23wood)'/%3E%3C/svg%3E");
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.06), 0 8px 24px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(242, 239, 231, 0.08);
+}
+
+/* Luxury Hand-Loomed Silk Texture */
+.texture-silk {
+  background-color: #F2EFE7;
+  background-image: 
+    linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(242, 239, 231, 0) 100%),
+    url("data:image/svg+xml,%3Csvg width='4' height='4' viewBox='0 0 4 4' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 0h1v4H1zm2 0h1v4H3zM0 1h4v1H0zm0 2h4v1H0z' fill='%23B9964B' fill-opacity='0.06' fill-rule='evenodd'/%3E%3C/svg%3E");
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2), 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+/* Red Sandstone Wall Texture with subtle ambient gradient */
+.texture-sandstone {
+  background-color: #0B3D2E;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(30, 93, 69, 0.35) 0%, transparent 85%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* Sacred Brass Diya flickering effect */
+.diya-glow {
+  box-shadow: 0 0 35px 6px rgba(185, 150, 75, 0.45), inset 0 0 20px rgba(185, 150, 75, 0.25);
+  animation: diya-flicker 5s infinite alternate ease-in-out;
+}
+
+@keyframes diya-flicker {
+  0% { transform: scale(1); filter: brightness(1) drop-shadow(0 2px 5px rgba(0,0,0,0.2)); }
+  40% { transform: scale(1.03); filter: brightness(1.1) drop-shadow(0 3px 8px rgba(185, 150, 75, 0.1)); }
+  75% { transform: scale(0.98); filter: brightness(0.96) drop-shadow(0 1px 4px rgba(0,0,0,0.15)); }
+  100% { transform: scale(1.01); filter: brightness(1.05) drop-shadow(0 2px 6px rgba(185, 150, 75, 0.08)); }
+}
+
+/* Fluid flow animation of water streams (no beads/segments!) */
+.flowing-water {
+  stroke-dasharray: none; /* No beads! */
+  animation: liquid-fluid-flow 25s infinite linear;
+}
+
+@keyframes liquid-fluid-flow {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -1000;
+  }
+}
+
+/* Custom hide scrollbars and smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  background-color: #0B3D2E; /* Rainforest Green default background */
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0B3D2E;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1E5D45;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B9964B;
+}
+
+/* Wave filter for displacement effects */
+.water-ripple-effect {
+  filter: url(#ripple-filter);
+}
+
