@@ -1,10 +1,18 @@
+export interface PricingOption {
+  name: string;
+  duration: string;
+  price: string;
+}
+
 export interface Service {
   id: string;
   name: string;
-  duration: string;
+  duration?: string;
   benefits: string[];
   description: string;
-  price: string;
+  price?: string;
+  category: string;
+  options?: PricingOption[];
 }
 
 export interface Testimonial {
@@ -22,3 +30,4 @@ export interface MembershipPlan {
   features: string[];
   description: string;
 }
+

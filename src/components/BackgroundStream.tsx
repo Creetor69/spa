@@ -20,7 +20,7 @@ export const BackgroundStream: React.FC<BackgroundStreamProps> = ({ scrollY, act
   // Track river properties in ref for RAF loop
   const stateRef = useRef({
     totalLength: 0,
-    landmarks: [500, 1500, 2500, 3500, 4500, 5500, 6500, 7500], // default approximations
+    landmarks: [500, 2200, 3900, 5600, 7500], // default approximations for 5 sections
     currentDistance: 500,
     time: 0,
     fireflies: [] as Array<{ id: number; x: number; y: number; speed: number; size: number; phase: number }>,
@@ -81,7 +81,7 @@ export const BackgroundStream: React.FC<BackgroundStreamProps> = ({ scrollY, act
       stateRef.current.totalLength = length;
 
       // Programmatically scan path to locate optimal distances for Y centers
-      const targetYs = [500, 1500, 2500, 3500, 4500, 5500, 6500, 7500];
+      const targetYs = [500, 2200, 3900, 5600, 7500];
       const scannedLandmarks = targetYs.map((targetY) => {
         let bestDist = 0;
         let minDistDiff = Infinity;
@@ -124,11 +124,11 @@ export const BackgroundStream: React.FC<BackgroundStreamProps> = ({ scrollY, act
         const scrollRatio = Math.min(Math.max(rawScrollRatio, 0), 1);
 
         // Map scrollRatio to section index and progress
-        const activeIdx = Math.min(Math.floor(scrollRatio * 7), 7);
+        const activeIdx = Math.min(Math.floor(scrollRatio * 4), 4);
         // Calculate remaining scroll ratio in the active segment
-        const segmentStart = activeIdx / 7;
-        const segmentEnd = (activeIdx + 1) / 7;
-        const segmentProgress = (scrollRatio - segmentStart) * 7; // 0..1 inside this segment
+        const segmentStart = activeIdx / 4;
+        const segmentEnd = (activeIdx + 1) / 4;
+        const segmentProgress = (scrollRatio - segmentStart) * 4; // 0..1 inside this segment
 
         // 2. Interpolate path distance with "Whirlpool pause" plateaus
         let targetDistance = 0;
@@ -146,14 +146,14 @@ export const BackgroundStream: React.FC<BackgroundStreamProps> = ({ scrollY, act
           whirlpoolIntensity = (1 - smoothT) * (prevIdx > 0 ? 1 : 0);
         } else if (segmentProgress > 0.7) {
           // Transitioning out of this section to next
-          const nextIdx = Math.min(activeIdx + 1, 7);
+          const nextIdx = Math.min(activeIdx + 1, 4);
           const startD = landmarks[activeIdx];
           const endD = landmarks[nextIdx];
           // Scale 0.7..1.0 progress to 0..1
           const t = (segmentProgress - 0.7) / 0.3;
           const smoothT = Math.sin((t - 0.5) * Math.PI) * 0.5 + 0.5;
           targetDistance = startD + (endD - startD) * smoothT;
-          whirlpoolIntensity = smoothT * (nextIdx < 7 ? 1 : 0);
+          whirlpoolIntensity = smoothT * (nextIdx < 4 ? 1 : 0);
         } else {
           // Staying in the center zone -> Perfect plateau, full whirlpool circle!
           targetDistance = landmarks[activeIdx];

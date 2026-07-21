@@ -1,6 +1,6 @@
 {
-  "name": "Pure Bliss",
-  "description": "The Journey of Serenity - An immersive, interactive wellness and spa experience following the natural flow of water.",
+  "name": "Pure Bliss Wellness",
+  "description": "An immersive, interactive men's luxury wellness spa in JP Nagar, Bangalore. Features a rich multichrome theme with expert male therapists.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
