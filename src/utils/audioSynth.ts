@@ -92,7 +92,7 @@ export function initAudio() {
   isPlaying = true;
 }
 
-// Fade water volume in or out
+// Fade water volume in or out (Disabled per user request to remove background river sound)
 export function setWaterVolume(targetVolume: number, duration: number = 2.0) {
   if (!audioCtx) initAudio();
   if (!audioCtx || !waterGain) return;
@@ -103,7 +103,8 @@ export function setWaterVolume(targetVolume: number, duration: number = 2.0) {
   }
 
   const now = audioCtx.currentTime;
-  waterGain.gain.linearRampToValueAtTime(targetVolume * 0.45, now + duration); // Max 45% volume for comfort
+  // Always set water gain to 0 to completely eliminate background river/water noise
+  waterGain.gain.setValueAtTime(0, now);
 }
 
 // Resonant Buddhist Temple Bell synthesis

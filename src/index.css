@@ -114,6 +114,7 @@
 
 /* Custom hide scrollbars and smooth scroll behavior */
 html {
+  font-size: 18px;
   scroll-behavior: smooth;
   overflow-x: hidden;
   background-color: #0B3D2E; /* Rainforest Green default background */
