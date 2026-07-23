@@ -158,15 +158,15 @@ export default function App() {
           {/* Formal info note per active tab */}
           <div className="flex items-center gap-2 shrink-0 text-lotus/90 font-medium">
             <span className="px-2 py-0.5 rounded bg-brass/20 text-brass font-bold uppercase tracking-wider text-[10px]">
-              {activeTab === "home" && "JP Nagar 2nd Phase"}
+              {activeTab === "home" && "JP Nagar 6th Phase"}
               {activeTab === "therapies" && "Therapies & Pricing"}
               {activeTab === "memberships" && "Wellness Packages"}
               {activeTab === "about" && "Certified Male Therapists"}
-              {activeTab === "contact" && "Reservations & GPS"}
+              {activeTab === "contact" && "1st Floor, BDA 583"}
             </span>
             <span className="hidden sm:inline text-stone/80">|</span>
             <span className="hidden sm:inline text-stone/90 font-light truncate max-w-xs md:max-w-md">
-              {activeTab === "home" && "Bangalore • Opp. JP Nagar Metro • Pure Men's Sanctuary"}
+              {activeTab === "home" && "Bengaluru • 1st Floor, BDA 583, Sarakki • Near to JP Nagar Metro Station"}
               {activeTab === "therapies" && "Swedish, Deep Tissue, Kerala Ayurvedic & Steam"}
               {activeTab === "memberships" && "Monthly Passes & Dual-Therapist Combos"}
               {activeTab === "about" && "Hygiene & Discretion Guaranteed"}
@@ -250,8 +250,8 @@ export default function App() {
               <Navigation size={14} />
               <span>Get Google Maps Directions</span>
             </a>
-            <p className="text-stone/70 tracking-widest uppercase font-medium text-[11px]">
-              📍 JP Nagar 2nd Phase, Bangalore • +91 98860 12345
+            <p className="text-stone/80 tracking-wider uppercase font-medium text-[11px] leading-tight">
+              📍 BDA 583, 1st Floor, 16th Cross, Sarakki, JP Nagar 6th Phase, Bengaluru • +91 98860 12345
             </p>
           </div>
         </div>

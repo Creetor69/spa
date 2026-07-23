@@ -241,7 +241,7 @@ export const Sections: React.FC<SectionsProps> = ({
               >
                 <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-brass/10 border border-brass/20 text-brass text-xs md:text-sm tracking-[0.2em] uppercase font-black">
                   <MapPin size={14} />
-                  <span>Located in JP Nagar, Bangalore</span>
+                  <span>Located in JP Nagar 6th Phase, Bengaluru</span>
                 </div>
                 
                 <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl tracking-tight leading-[1.08] text-lotus font-light">
@@ -250,7 +250,7 @@ export const Sections: React.FC<SectionsProps> = ({
                 </h1>
                 
                 <p className="font-sans text-base md:text-lg lg:text-xl text-lotus/90 leading-relaxed max-w-2xl tracking-wide font-light">
-                  Reclaim absolute stillness. Nestled in prime JP Nagar, we offer premium male-to-male massage rituals, specialized scrubs, and authentic Ayurvedic therapies designed to restore urban fatigue.
+                  Reclaim absolute stillness. Nestled in <strong>1st Floor, BDA 583, 16th Cross, Sarakki, JP Nagar 6th Phase</strong> (Near to JP Nagar Metro Station), we offer premium male-to-male massage rituals, specialized scrubs, and authentic Ayurvedic therapies designed to restore urban fatigue.
                 </p>
 
                 {/* Direct Action Navigation Buttons */}
@@ -601,22 +601,22 @@ export const Sections: React.FC<SectionsProps> = ({
                   The Ultimate Destination
                 </span>
                 <h2 className="font-serif text-4xl md:text-6xl text-lotus font-light leading-tight">
-                  Located in the <br />
-                  <span className="italic text-brass font-normal">Heart of JP Nagar</span>
+                  Located in <br />
+                  <span className="italic text-brass font-normal">JP Nagar 6th Phase</span>
                 </h2>
                 
                 <p className="font-sans text-sm md:text-base lg:text-lg text-lotus/90 leading-relaxed font-light">
-                  A premium, ultra-discreet space tailored specifically for men's wellness. Situated in a highly residential, elegant area of JP Nagar 2nd Phase, Bangalore, our private hygienic suites offer safe, certified professional care.
+                  A premium, ultra-discreet space tailored specifically for men's wellness. Situated on the 1st Floor at BDA 583, Sarakki, JP Nagar 6th Phase, Bengaluru, near to JP Nagar Metro Station, our private hygienic suites offer safe, certified professional care.
                 </p>
 
                 <div className="grid grid-cols-2 gap-4 pt-2">
                   <div className="p-4 rounded-xl bg-white/5 border border-white/5 space-y-1">
-                    <span className="text-brass text-xs md:text-sm tracking-wider font-bold block uppercase">Metro Proximity</span>
-                    <span className="text-xs md:text-sm text-stone">Opposite JP Nagar Metro Station (1 Min walk)</span>
+                    <span className="text-brass text-xs md:text-sm tracking-wider font-bold block uppercase">Landmark</span>
+                    <span className="text-xs md:text-sm text-stone">Near to JP Nagar Metro Station</span>
                   </div>
                   <div className="p-4 rounded-xl bg-white/5 border border-white/5 space-y-1">
-                    <span className="text-brass text-xs md:text-sm tracking-wider font-bold block uppercase">Pristine Hygiene</span>
-                    <span className="text-xs md:text-sm text-stone">Individual private suites with private showers</span>
+                    <span className="text-brass text-xs md:text-sm tracking-wider font-bold block uppercase">Suite Floor</span>
+                    <span className="text-xs md:text-sm text-stone">1st Floor Private Sanctuary Suite</span>
                   </div>
                 </div>
 
@@ -656,7 +656,7 @@ export const Sections: React.FC<SectionsProps> = ({
                     <div>
                       <strong className="text-brass font-bold block">JP Nagar Address</strong>
                       <span className="text-lotus/90 font-light block mb-2">
-                        Pure Bliss Wellness, 34/A, 15th Cross Rd, Outer Ring Rd, JP Nagar 2nd Phase, Bangalore - 560078
+                        Pure Bliss Wellness, BDA No. 583, 1st Floor, 16th Cross, Sarakki, JP Nagar 6th Phase, Bengaluru - 560078
                       </span>
                       <a
                         href="https://maps.app.goo.gl/e5pfzqbjtzHXpE9WA?g_st=awb"
@@ -1291,7 +1291,7 @@ export const Sections: React.FC<SectionsProps> = ({
                     <div className="p-5 rounded-2xl bg-white/5 border border-white/5 max-w-md mx-auto text-left space-y-3 font-sans text-sm">
                       <div className="flex justify-between border-b border-white/5 pb-2">
                         <span className="text-stone font-bold uppercase">Sanctuary Branch</span>
-                        <span className="text-brass font-bold">JP Nagar 2nd Phase</span>
+                        <span className="text-brass font-bold">JP Nagar 6th Phase (1st Floor)</span>
                       </div>
                       <div className="flex justify-between">
                         <span className="text-stone">Session Selected</span>
@@ -1372,14 +1372,14 @@ export const Sections: React.FC<SectionsProps> = ({
               <div className="p-6 rounded-3xl border border-white/5 bg-[#0c0f0e] space-y-5">
                 <div className="flex items-center gap-2.5">
                   <MapPin size={20} className="text-brass" />
-                  <h3 className="font-serif text-2xl text-lotus">Pure Bliss JP Nagar</h3>
+                  <h3 className="font-serif text-2xl text-lotus">Pure Bliss JP Nagar 6th Phase</h3>
                 </div>
 
                 <div className="space-y-4 font-sans text-sm">
                   <div className="space-y-1">
-                    <strong className="text-brass font-bold uppercase block text-xs">Prime Location</strong>
+                    <strong className="text-brass font-bold uppercase block text-xs">Prime Location Address</strong>
                     <p className="text-lotus/90 font-light leading-relaxed mb-2">
-                      Pure Bliss Wellness, 34/A, 15th Cross Rd, Outer Ring Rd, JP Nagar 2nd Phase, Bangalore - 560078
+                      Pure Bliss Wellness, BDA No. 583, 1st Floor, 16th Cross, Sarakki, JP Nagar 6th Phase, Bengaluru - 560078
                     </p>
                     <a
                       href="https://maps.app.goo.gl/e5pfzqbjtzHXpE9WA?g_st=awb"
@@ -1397,7 +1397,7 @@ export const Sections: React.FC<SectionsProps> = ({
                   <div className="space-y-1">
                     <strong className="text-brass font-bold uppercase block text-xs">Landmark Guidance</strong>
                     <p className="text-stone font-light leading-relaxed">
-                      Conveniently situated right opposite the JP Nagar Metro Station. 1-minute walking distance. Discreet residential luxury building with private rear-end parking.
+                      Near to JP Nagar Metro Station. 1st Floor Sanctuary setup with discreet private suites & parking.
                     </p>
                   </div>
 
