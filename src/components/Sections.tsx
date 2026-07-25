@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
-  Volume2,
-  VolumeX,
   Sparkles,
   MapPin,
   Calendar,
@@ -27,34 +25,38 @@ import {
 import { TabType } from "../App";
 import { services } from "../data/services";
 import { Service, Testimonial, MembershipPlan } from "../types";
-import { triggerBell } from "../utils/audioSynth";
+import { ClientTestimonials } from "./ClientTestimonials";
 
 interface SectionsProps {
   activeTab: TabType;
   setActiveTab: (tab: TabType) => void;
   activeSection: number;
-  isMuted: boolean;
-  setIsMuted: (muted: boolean) => void;
 }
 
 const testimonialsData: Testimonial[] = [
   {
     id: "t1",
     name: "Sandeep Nair",
-    role: "Tech Lead & Fitness Enthusiast",
-    text: "Pure Bliss is a masterclass in men's wellness. The 4 Hands massage was synchronized so perfectly, it felt like a wave of pure relief. Absolute privacy and pristine hygiene in JP Nagar."
+    role: "Tech Lead • JP Nagar 6th Phase",
+    text: "Pure Bliss is a masterclass male-to-male spa in JP Nagar. The Four-Hands Synchronized Massage was executed with rhythmic perfection. Absolute privacy, pristine hygiene, and warm herbal oils."
   },
   {
     id: "t2",
     name: "Vikram Kamath",
-    role: "Corporate Executive",
-    text: "The Dry Massage is my ultimate office break cure. Quick, highly effective pressure, and no cleanup. It is a premium sanctuary. Highly recommended for busy professionals."
+    role: "Corporate Executive • Jayanagar",
+    text: "The Dry Massage (30 Mins) and Head, Neck & Back Therapy (45 Mins) are my ultimate office break cure. Quick, highly effective pressure, zero oily residue, and instant relief."
   },
   {
     id: "t3",
     name: "Dr. Alok Prasad",
-    role: "Ayurvedic Practitioner",
-    text: "They use authentic Kerala medicated oils for Abhyanga, and the steam bath finishes the detoxification beautifully. They genuinely honor classical healing principles."
+    role: "Medical Practitioner • Koramangala",
+    text: "They use authentic Kerala warm medicated oils for Abhyanga, followed by a sandalwood steam bath. Pure Bliss maintains clinical-grade cleanliness and genuine male therapist expertise."
+  },
+  {
+    id: "t4",
+    name: "Rahul Deshmukh",
+    role: "Senior Architect • BTM Layout",
+    text: "The Deep Tissue Massage with De-Tan Scrub (90 Mins) completely unknotted my shoulder stiffness. Conveniently located near JP Nagar Metro Station. Booking on WhatsApp was super fast!"
   }
 ];
 
@@ -102,9 +104,7 @@ const membershipsData: MembershipPlan[] = [
 export const Sections: React.FC<SectionsProps> = ({
   activeTab,
   setActiveTab,
-  activeSection,
-  isMuted,
-  setIsMuted
+  activeSection
 }) => {
   // Service filter tab state
   const [therapyCategory, setTherapyCategory] = useState<string>("All");
@@ -131,7 +131,6 @@ export const Sections: React.FC<SectionsProps> = ({
     if (target) {
       target.scrollIntoView({ behavior: "smooth" });
     }
-    if (!isMuted) triggerBell();
   };
 
   // Select a service, option and route to booking page
@@ -143,7 +142,6 @@ export const Sections: React.FC<SectionsProps> = ({
     }));
     setActiveTab("contact");
     window.scrollTo({ top: 0, behavior: "instant" });
-    if (!isMuted) triggerBell();
   };
 
   // Handle pricing option selection on a therapy card
@@ -152,14 +150,27 @@ export const Sections: React.FC<SectionsProps> = ({
       ...prev,
       [serviceId]: idx
     }));
-    if (!isMuted) triggerBell();
   };
 
-  // Form submission handler
+  // Form submission handler - Opens WhatsApp directly with reservation details
   const handleBookingSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setBookingSuccess(true);
-    triggerBell();
+
+    const details = getSelectedBookingDetails();
+    const message = encodeURIComponent(
+      `Hello Pure Bliss Wellness!\n\nI would like to reserve a spa session:\n\n` +
+      `• Name: ${bookingForm.name}\n` +
+      `• Phone: ${bookingForm.phone}\n` +
+      `• Service: ${details.serviceName} ${details.optionName ? `(${details.optionName})` : ''}\n` +
+      `• Duration: ${details.duration}\n` +
+      `• Price: ${details.price}\n` +
+      `• Date & Time: ${bookingForm.date} @ ${bookingForm.time}\n` +
+      `${bookingForm.notes ? `• Notes: ${bookingForm.notes}\n` : ''}\n` +
+      `Branch: Pure Bliss Wellness, 1st Floor, No. 583, JP Nagar 6th Phase, Bengaluru.`
+    );
+
+    window.open(`https://wa.me/919886012345?text=${message}`, '_blank');
   };
 
   // Reset booking form
@@ -202,7 +213,7 @@ export const Sections: React.FC<SectionsProps> = ({
   const bookingDetails = getSelectedBookingDetails();
 
   return (
-    <div className="relative w-full text-lotus select-none pt-24 sm:pt-28">
+    <div className="relative w-full text-lotus select-none pt-16 sm:pt-20">
       
       {/* =========================================================================
           TAB 1: HOME (5 VERTICAL SCROLLABLE PAGES / SECTIONS)
@@ -232,36 +243,78 @@ export const Sections: React.FC<SectionsProps> = ({
             <div className="h-6" />
 
             {/* Central Typography and Visual Hook */}
-            <div className="z-10 my-auto max-w-4xl text-left md:pl-8">
+            <div className="z-10 my-auto max-w-5xl text-left md:pl-4 lg:pl-8 py-6">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.2 }}
                 className="space-y-6"
               >
-                <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-brass/10 border border-brass/20 text-brass text-xs md:text-sm tracking-[0.2em] uppercase font-black">
-                  <MapPin size={14} />
-                  <span>Located in JP Nagar 6th Phase, Bengaluru</span>
+                <div className="flex flex-wrap items-center gap-2.5">
+                  <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brass/20 border border-brass/40 text-brass text-xs md:text-sm tracking-[0.2em] uppercase font-black shadow-lg">
+                    <Sparkles size={14} className="text-brass animate-pulse" />
+                    <span>PREMIUM MALE-TO-MALE SPA IN JP NAGAR</span>
+                  </span>
+                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-stone text-xs tracking-wider uppercase font-bold">
+                    <MapPin size={13} className="text-brass" />
+                    <span>1st Floor, No. 583, Sarakki, JP Nagar 6th Phase</span>
+                  </div>
                 </div>
                 
                 <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl tracking-tight leading-[1.08] text-lotus font-light">
-                  A Meditative Men's <br />
-                  <span className="italic text-brass font-normal">Wellness Sanctuary</span>
+                  Your Sanctuary for <br />
+                  <span className="italic text-brass font-normal">Men's Wellness</span>
                 </h1>
                 
-                <p className="font-sans text-base md:text-lg lg:text-xl text-lotus/90 leading-relaxed max-w-2xl tracking-wide font-light">
-                  Reclaim absolute stillness. Nestled in <strong>1st Floor, BDA 583, 16th Cross, Sarakki, JP Nagar 6th Phase</strong> (Near to JP Nagar Metro Station), we offer premium male-to-male massage rituals, specialized scrubs, and authentic Ayurvedic therapies designed to restore urban fatigue.
+                <p className="font-sans text-base md:text-lg lg:text-xl text-lotus/90 leading-relaxed max-w-3xl tracking-wide font-light">
+                  Dark Light Spa is JP Nagar's premier male-to-male spa, dedicated to providing professional, discreet, and tailored massage therapies. We offer a modern sanctuary where men can genuinely unwind and recharge on <strong>1st Floor, No. 583, 16th Cross, Sarakki, JP Nagar 6th Phase</strong> (Near JP Nagar Metro Station).
                 </p>
 
+                {/* FEATURED LANDING BIMAGE CARD - MALE TO MALE SPA HIGHLIGHT */}
+                <div className="mt-6 p-4 md:p-6 rounded-3xl bg-gradient-to-r from-brass/15 via-white/5 to-transparent border border-brass/30 shadow-2xl backdrop-blur-md max-w-4xl grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                  <div className="md:col-span-5 relative rounded-2xl overflow-hidden h-48 md:h-44 border border-brass/20 shadow-xl group">
+                    <img
+                      src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80"
+                      alt="Premium Male to Male Spa JP Nagar"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-95"
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0c0f0e] via-transparent to-transparent opacity-80" />
+                    <div className="absolute bottom-3 left-3 right-3 px-3 py-1.5 rounded-lg bg-[#0c0f0e]/85 border border-brass/30 text-center">
+                      <span className="font-sans text-[10px] sm:text-xs font-bold uppercase tracking-widest text-brass">
+                        📍 JP Nagar 6th Phase Suite
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="md:col-span-7 space-y-2 text-left">
+                    <span className="text-xs font-bold uppercase tracking-widest text-brass block">
+                      ✨ Certified Professional Male Therapists
+                    </span>
+                    <h3 className="font-serif text-xl sm:text-2xl text-lotus font-normal">
+                      Discreet, Hygienic & Tailored Male Massages
+                    </h3>
+                    <p className="text-xs sm:text-sm text-lotus/80 font-light leading-relaxed">
+                      Swedish, Deep Tissue, Kerala Ayurvedic & Warm Herbal Oils customized for stress relief, muscle recovery, and total rejuvenation.
+                    </p>
+                    <div className="pt-1 flex items-center gap-4 text-xs font-bold text-brass uppercase tracking-wider">
+                      <span>✓ Private Suites</span>
+                      <span>•</span>
+                      <span>✓ Certified Male Staff</span>
+                      <span>•</span>
+                      <span>✓ JP Nagar Metro 2 Mins</span>
+                    </div>
+                  </div>
+                </div>
+
                 {/* Direct Action Navigation Buttons */}
-                <div className="flex flex-col sm:flex-row gap-4 pt-4 max-w-md sm:max-w-xl">
+                <div className="flex flex-col sm:flex-row gap-4 pt-2 max-w-md sm:max-w-xl">
                   <button
                     onClick={() => {
                       setActiveTab("therapies");
                       window.scrollTo({ top: 0, behavior: "instant" });
-                      if (!isMuted) triggerBell();
                     }}
-                    className="px-8 py-4 bg-brass hover:bg-lotus text-[#0c0f0e] hover:text-[#0c0f0e] font-sans font-black text-sm tracking-[0.2em] uppercase rounded-full shadow-2xl transition-all duration-300 flex items-center justify-center gap-2.5 group"
+                    className="px-8 py-4 bg-brass hover:bg-lotus text-[#0c0f0e] hover:text-[#0c0f0e] font-sans font-black text-sm tracking-[0.2em] uppercase rounded-full shadow-2xl transition-all duration-300 flex items-center justify-center gap-2.5 group cursor-pointer"
                     id="explore-therapies-hero-btn"
                   >
                     <span>🌿 EXPLORE THERAPIES</span>
@@ -271,9 +324,8 @@ export const Sections: React.FC<SectionsProps> = ({
                     onClick={() => {
                       setActiveTab("contact");
                       window.scrollTo({ top: 0, behavior: "instant" });
-                      if (!isMuted) triggerBell();
                     }}
-                    className="px-8 py-4 bg-white/5 hover:bg-white/10 text-lotus border border-white/20 hover:border-brass/50 font-sans font-black text-sm tracking-[0.2em] uppercase rounded-full transition-all duration-300 flex items-center justify-center gap-2.5"
+                    className="px-8 py-4 bg-white/5 hover:bg-white/10 text-lotus border border-white/20 hover:border-brass/50 font-sans font-black text-sm tracking-[0.2em] uppercase rounded-full transition-all duration-300 flex items-center justify-center gap-2.5 cursor-pointer"
                     id="reserve-session-hero-btn"
                   >
                     <span>📅 RESERVE SESSION</span>
@@ -606,7 +658,7 @@ export const Sections: React.FC<SectionsProps> = ({
                 </h2>
                 
                 <p className="font-sans text-sm md:text-base lg:text-lg text-lotus/90 leading-relaxed font-light">
-                  A premium, ultra-discreet space tailored specifically for men's wellness. Situated on the 1st Floor at BDA 583, Sarakki, JP Nagar 6th Phase, Bengaluru, near to JP Nagar Metro Station, our private hygienic suites offer safe, certified professional care.
+                  A premium, ultra-discreet space tailored specifically for men's wellness. Situated on the 1st Floor at No. 583, Sarakki, JP Nagar 6th Phase, Bengaluru, near to JP Nagar Metro Station, our private hygienic suites offer safe, certified professional care.
                 </p>
 
                 <div className="grid grid-cols-2 gap-4 pt-2">
@@ -625,9 +677,8 @@ export const Sections: React.FC<SectionsProps> = ({
                     onClick={() => {
                       setActiveTab("contact");
                       window.scrollTo({ top: 0, behavior: "instant" });
-                      if (!isMuted) triggerBell();
                     }}
-                    className="px-6 py-3.5 bg-brass hover:bg-lotus text-[#0c0f0e] font-sans font-bold text-xs md:text-sm tracking-widest uppercase rounded-full transition-all duration-300"
+                    className="px-6 py-3.5 bg-brass hover:bg-lotus text-[#0c0f0e] font-sans font-bold text-xs md:text-sm tracking-widest uppercase rounded-full transition-all duration-300 cursor-pointer"
                     id="home-book-final-btn"
                   >
                     📅 BOOK APPOINTMENT
@@ -636,9 +687,8 @@ export const Sections: React.FC<SectionsProps> = ({
                     onClick={() => {
                       setActiveTab("about");
                       window.scrollTo({ top: 0, behavior: "instant" });
-                      if (!isMuted) triggerBell();
                     }}
-                    className="px-6 py-3.5 bg-white/5 hover:bg-white/10 text-lotus border border-white/15 hover:border-brass/40 font-sans font-bold text-xs md:text-sm tracking-widest uppercase rounded-full transition-all duration-300"
+                    className="px-6 py-3.5 bg-white/5 hover:bg-white/10 text-lotus border border-white/15 hover:border-brass/40 font-sans font-bold text-xs md:text-sm tracking-widest uppercase rounded-full transition-all duration-300 cursor-pointer"
                     id="home-about-final-btn"
                   >
                     🌿 ABOUT THE SPA
@@ -656,7 +706,7 @@ export const Sections: React.FC<SectionsProps> = ({
                     <div>
                       <strong className="text-brass font-bold block">JP Nagar Address</strong>
                       <span className="text-lotus/90 font-light block mb-2">
-                        Pure Bliss Wellness, BDA No. 583, 1st Floor, 16th Cross, Sarakki, JP Nagar 6th Phase, Bengaluru - 560078
+                        Pure Bliss Wellness, No. 583, 1st Floor, 16th Cross, Sarakki, JP Nagar 6th Phase, Bengaluru - 560078
                       </span>
                       <a
                         href="https://maps.app.goo.gl/e5pfzqbjtzHXpE9WA?g_st=awb"
@@ -712,6 +762,9 @@ export const Sections: React.FC<SectionsProps> = ({
             </div>
           </section>
 
+          {/* HOME SECTION 6: CLIENT TESTIMONIALS */}
+          <ClientTestimonials />
+
         </div>
       )}
 
@@ -742,7 +795,6 @@ export const Sections: React.FC<SectionsProps> = ({
                   key={cat}
                   onClick={() => {
                     setTherapyCategory(cat);
-                    if (!isMuted) triggerBell();
                   }}
                   className={`px-5 py-2.5 rounded-full font-sans font-bold text-xs md:text-sm tracking-wider uppercase transition-all duration-300 cursor-pointer ${
                     isActive
@@ -971,7 +1023,6 @@ export const Sections: React.FC<SectionsProps> = ({
                       }));
                       setActiveTab("contact");
                       window.scrollTo({ top: 0, behavior: "instant" });
-                      if (!isMuted) triggerBell();
                     }}
                     className="w-full py-3.5 bg-brass hover:bg-lotus text-[#0c0f0e] font-sans font-black text-xs md:text-sm tracking-widest uppercase rounded-full transition-all duration-300 text-center"
                     id={`member-btn-${m.id}`}
@@ -1003,7 +1054,6 @@ export const Sections: React.FC<SectionsProps> = ({
                   setTherapyCategory("Combos");
                   setActiveTab("therapies");
                   window.scrollTo({ top: 0, behavior: "instant" });
-                  if (!isMuted) triggerBell();
                 }}
                 className="px-7 py-3.5 bg-orange-600 hover:bg-orange-500 text-lotus font-sans font-bold text-xs md:text-sm tracking-widest uppercase rounded-full transition-all duration-300"
                 id="explore-combos-btn"
@@ -1027,50 +1077,54 @@ export const Sections: React.FC<SectionsProps> = ({
             {/* Description */}
             <div className="space-y-6">
               <span className="font-sans text-sm tracking-[0.3em] text-brass uppercase font-black block">
-                Men's Premier Spa
+                About Us — Dark Light Spa
               </span>
               <h1 className="font-serif text-5xl md:text-6xl text-lotus font-light leading-tight">
-                About Pure Bliss Wellness <br />
-                <span className="italic text-brass font-normal">Sanctuary</span>
+                Your Sanctuary for <br />
+                <span className="italic text-brass font-normal">Men's Wellness</span>
               </h1>
               <p className="font-sans text-base md:text-lg text-lotus/85 leading-relaxed font-light">
-                Pure Bliss Wellness is JP Nagar’s premier male-to-male spa, dedicated to providing professional, discreet, and tailored massage therapies. We offer a modern sanctuary where men can genuinely unwind and recharge.
+                Dark Light Spa is JP Nagar's premier male-to-male spa, dedicated to providing professional, discreet, and tailored massage therapies. We offer a modern sanctuary where men can genuinely unwind and recharge.
               </p>
               <p className="font-sans text-base md:text-lg text-lotus/85 leading-relaxed font-light">
-                Our facilities are engineered to provide absolute safety, pristine physical hygiene, and deep thermal purification. We believe in providing personalized care, adjusting pressure, oil properties, and heat levels to your exact lifestyle strains.
+                Located on the 1st Floor at No. 583, 16th Cross, Sarakki, JP Nagar 6th Phase (Near to JP Nagar Metro Station), our private hygienic suites offer safe, certified professional care using premium organic massage oils and steam.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 pt-2">
                 <div className="flex gap-2.5 items-center text-sm md:text-base font-sans text-brass">
                   <ShieldCheck size={18} />
-                  <span>100% Certified Professionals</span>
+                  <span>100% Certified Professional Male Therapists</span>
                 </div>
                 <div className="flex gap-2.5 items-center text-sm md:text-base font-sans text-brass">
                   <ShieldCheck size={18} />
-                  <span>Discreet residential locality</span>
+                  <span>Discreet & Hygienic Private Suites</span>
                 </div>
               </div>
             </div>
 
-            {/* Visual Lounge Frame */}
-            <div className="relative rounded-3xl overflow-hidden border border-white/5 shadow-2xl h-96">
+            {/* Visual Lounge Frame with Male Spa Highlight */}
+            <div className="relative rounded-3xl overflow-hidden border border-brass/20 shadow-2xl h-96 group">
               <img
                 src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80"
-                alt="Spa Sanctuary Reception"
-                className="w-full h-full object-cover filter brightness-90"
+                alt="Dark Light Spa Sanctuary Suite"
+                className="w-full h-full object-cover filter brightness-90 group-hover:scale-105 transition-transform duration-700"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0c0f0e]/95 via-transparent to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-[#0c0f0e]/80 border border-white/5 text-center">
-                <span className="font-serif text-sm italic text-brass">A pristine environment designed specifically for gentlemen's relaxation</span>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0c0f0e]/95 via-[#0c0f0e]/40 to-transparent" />
+              <div className="absolute top-4 left-4 px-3.5 py-1.5 rounded-full bg-brass/20 border border-brass/40 text-brass text-xs font-bold uppercase tracking-wider backdrop-blur-md">
+                ✨ JP Nagar Male Spa Suite
+              </div>
+              <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-[#0c0f0e]/85 border border-white/10 text-center">
+                <span className="font-serif text-sm italic text-brass block">Dark Light Spa — 1st Floor, No. 583, JP Nagar 6th Phase</span>
+                <span className="font-sans text-[11px] text-stone uppercase tracking-wider font-bold">Bangalore's Premier Male-to-Male Spa</span>
               </div>
             </div>
 
           </div>
 
-          {/* Pillars of Sanctuary Details */}
+          {/* Pillars of Sanctuary Details matching Dark Light Spa */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
-            <div className="p-6 rounded-2xl bg-white/5 border border-white/5 space-y-4">
+            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-brass/30 transition-all space-y-4">
               <div className="w-12 h-12 rounded-full bg-brass/15 flex items-center justify-center text-brass">
                 <Award size={22} />
               </div>
@@ -1080,23 +1134,23 @@ export const Sections: React.FC<SectionsProps> = ({
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-white/5 border border-white/5 space-y-4">
+            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-brass/30 transition-all space-y-4">
               <div className="w-12 h-12 rounded-full bg-brass/15 flex items-center justify-center text-brass">
                 <ShieldCheck size={22} />
               </div>
-              <h3 className="font-serif text-2xl text-lotus">Premium & Discreet</h3>
+              <h3 className="font-serif text-2xl text-lotus">Premium & Discreet Environment</h3>
               <p className="font-sans text-sm md:text-base text-lotus/80 leading-relaxed font-light">
                 Experience tranquility in our hygienic, private spaces designed specifically for men, using only high-quality oils and products for your comfort and well-being.
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-white/5 border border-white/5 space-y-4">
+            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-brass/30 transition-all space-y-4">
               <div className="w-12 h-12 rounded-full bg-brass/15 flex items-center justify-center text-brass">
                 <Activity size={22} />
               </div>
-              <h3 className="font-serif text-2xl text-lotus">Tailored For Men</h3>
+              <h3 className="font-serif text-2xl text-lotus">Tailored Wellness Sessions</h3>
               <p className="font-sans text-sm md:text-base text-lotus/80 leading-relaxed font-light">
-                We understand the male physique. Every service, from quick relief to full-body wellness, is customized to address your specific stress points and recovery goals.
+                Personalized 60, 90, or 120-minute sessions suited to your stress relief, muscle recovery, or deep relaxation goals with custom therapy pressure.
               </p>
             </div>
 
@@ -1262,10 +1316,10 @@ export const Sections: React.FC<SectionsProps> = ({
 
                     <button
                       type="submit"
-                      className="w-full py-4 bg-brass hover:bg-lotus text-[#0c0f0e] font-sans font-black text-xs md:text-sm tracking-widest uppercase rounded-full transition-all duration-300 shadow-xl flex items-center justify-center gap-2.5"
+                      className="w-full py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-sans font-black text-xs md:text-sm tracking-widest uppercase rounded-full transition-all duration-300 shadow-xl flex items-center justify-center gap-2.5 cursor-pointer"
                       id="submit-booking-form-btn"
                     >
-                      <span>RESERVE SANCTUARY SUITE</span>
+                      <span>💬 RESERVE & CONFIRM VIA WHATSAPP</span>
                     </button>
                   </motion.form>
                 ) : (
@@ -1276,14 +1330,14 @@ export const Sections: React.FC<SectionsProps> = ({
                     className="py-12 text-center space-y-6"
                     id="booking-success-message"
                   >
-                    <div className="w-20 h-20 rounded-full bg-brass/10 border border-brass/35 flex items-center justify-center text-brass mx-auto animate-bounce">
+                    <div className="w-20 h-20 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 mx-auto animate-bounce">
                       <Flower2 size={36} />
                     </div>
                     
                     <div className="space-y-2">
-                      <h2 className="font-serif text-3xl text-lotus font-bold">Reserving Flow Locked</h2>
+                      <h2 className="font-serif text-3xl text-lotus font-bold">WhatsApp Booking Opened</h2>
                       <p className="font-sans text-sm text-stone max-w-sm mx-auto leading-relaxed">
-                        Thank you, <strong className="text-brass font-bold">{bookingForm.name}</strong>. Your wellness reservation request has been registered in our JP Nagar branch database.
+                        Thank you, <strong className="text-brass font-bold">{bookingForm.name}</strong>. WhatsApp has been launched with your reservation details for Pure Bliss Wellness JP Nagar.
                       </p>
                     </div>
 
@@ -1317,16 +1371,24 @@ export const Sections: React.FC<SectionsProps> = ({
                       </div>
                     </div>
 
-                    <p className="text-xs font-sans text-brass tracking-wider uppercase font-semibold">
-                      ⚡ GENTLEMEN: EXPECT OUR CHIME CALL IN 10 MINUTES
-                    </p>
-
-                    <button
-                      onClick={handleResetBooking}
-                      className="px-6 py-3 bg-white/5 hover:bg-white/10 text-lotus border border-white/10 rounded-full font-sans font-bold text-xs md:text-sm tracking-wider uppercase"
-                    >
-                      Book Another Therapy
-                    </button>
+                    <div className="flex flex-col sm:flex-row gap-3 justify-center items-center pt-2">
+                      <a
+                        href={`https://wa.me/919886012345?text=${encodeURIComponent(
+                          `Hello Pure Bliss Wellness! I am following up on my booking for ${bookingDetails.serviceName} on ${bookingForm.date} at ${bookingForm.time}.`
+                        )}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-white rounded-full font-sans font-bold text-xs md:text-sm tracking-wider uppercase flex items-center gap-2"
+                      >
+                        💬 Re-open WhatsApp Chat
+                      </a>
+                      <button
+                        onClick={handleResetBooking}
+                        className="px-6 py-3 bg-white/5 hover:bg-white/10 text-lotus border border-white/10 rounded-full font-sans font-bold text-xs md:text-sm tracking-wider uppercase cursor-pointer"
+                      >
+                        Book Another Therapy
+                      </button>
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -1379,7 +1441,7 @@ export const Sections: React.FC<SectionsProps> = ({
                   <div className="space-y-1">
                     <strong className="text-brass font-bold uppercase block text-xs">Prime Location Address</strong>
                     <p className="text-lotus/90 font-light leading-relaxed mb-2">
-                      Pure Bliss Wellness, BDA No. 583, 1st Floor, 16th Cross, Sarakki, JP Nagar 6th Phase, Bengaluru - 560078
+                      Pure Bliss Wellness, No. 583, 1st Floor, 16th Cross, Sarakki, JP Nagar 6th Phase, Bengaluru - 560078
                     </p>
                     <a
                       href="https://maps.app.goo.gl/e5pfzqbjtzHXpE9WA?g_st=awb"

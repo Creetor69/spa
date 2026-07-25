@@ -30,24 +30,12 @@ export const BackgroundStream: React.FC<BackgroundStreamProps> = ({ scrollY, act
   // State to force trigger some React renders if needed, but mostly RAF-driven
   const [initComplete, setInitComplete] = useState(false);
 
-  // SVG River path coordinate definition (A gorgeous winding bezier stream)
+  // SVG River path coordinate definition (A smooth, elegant, flowing bezier water stream)
   const riverPathD = `
     M 500,0 
-    C 480,250 440,400 450,500
-    C 460,600 520,750 500,1000
-    C 480,1250 550,1350 540,1500
-    C 530,1650 440,1750 460,2000
-    C 480,2250 560,2350 550,2500
-    C 540,2650 450,2750 460,3000
-    C 470,3250 430,3350 500,3500
-    C 570,3650 520,3850 500,4000
-    C 480,4150 470,4350 500,4500
-    C 530,4650 520,4850 490,5000
-    C 460,5150 430,5350 440,5500
-    C 450,5650 530,5850 500,6000
-    C 470,6150 480,6350 500,6500
-    C 520,6650 500,6850 500,7000
-    C 500,7250 500,7500 500,8000
+    C 530,1000 470,2000 520,3000
+    C 480,4000 520,5000 480,6000
+    C 520,7000 500,7500 500,8000
   `.trim().replace(/\s+/g, " ");
 
   useEffect(() => {
@@ -234,28 +222,27 @@ export const BackgroundStream: React.FC<BackgroundStreamProps> = ({ scrollY, act
   return (
     <div
       ref={containerRef}
-      className="absolute top-0 left-0 right-0 h-full pointer-events-none z-10 overflow-hidden"
+      className="absolute top-0 left-0 right-0 h-full pointer-events-none z-0 overflow-hidden"
       id="background-stream-container"
     >
       <svg
         viewBox="0 0 1000 8000"
-        className="w-full h-full"
+        className="w-full h-full opacity-60"
         preserveAspectRatio="none"
       >
         <defs>
           {/* Water gradients */}
           <linearGradient id="river-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#1E5D45" stopOpacity="0.12" />
-            <stop offset="15%" stopColor="#1E5D45" stopOpacity="0.25" />
-            <stop offset="45%" stopColor="#5B7F4F" stopOpacity="0.28" />
-            <stop offset="65%" stopColor="#1E5D45" stopOpacity="0.35" />
-            <stop offset="85%" stopColor="#0B3D2E" stopOpacity="0.45" />
-            <stop offset="100%" stopColor="#051c15" stopOpacity="0.75" />
+            <stop offset="0%" stopColor="#1E5D45" stopOpacity="0.08" />
+            <stop offset="20%" stopColor="#1E5D45" stopOpacity="0.15" />
+            <stop offset="50%" stopColor="#5B7F4F" stopOpacity="0.18" />
+            <stop offset="80%" stopColor="#0B3D2E" stopOpacity="0.22" />
+            <stop offset="100%" stopColor="#051c15" stopOpacity="0.30" />
           </linearGradient>
 
           <linearGradient id="stream-shimmer" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="#F2EFE7" stopOpacity="0.0" />
-            <stop offset="50%" stopColor="#F2EFE7" stopOpacity="0.35" />
+            <stop offset="50%" stopColor="#F2EFE7" stopOpacity="0.20" />
             <stop offset="100%" stopColor="#F2EFE7" stopOpacity="0.0" />
           </linearGradient>
 
@@ -271,46 +258,46 @@ export const BackgroundStream: React.FC<BackgroundStreamProps> = ({ scrollY, act
             <feTurbulence type="fractalNoise" baseFrequency="0.015 0.05" numOctaves="3" result="noise">
               <animate attributeName="baseFrequency" dur="25s" values="0.015 0.04; 0.015 0.08; 0.015 0.04" repeatCount="indefinite" />
             </feTurbulence>
-            <feDisplacementMap in="SourceGraphic" in2="noise" scale="18" xChannelSelector="R" yChannelSelector="G" />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="12" xChannelSelector="R" yChannelSelector="G" />
           </filter>
 
           {/* Golden glow filter for petal and fireflies */}
           <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="5" result="blur" />
+            <feGaussianBlur stdDeviation="4" result="blur" />
             <feComposite in="SourceGraphic" in2="blur" operator="over" />
           </filter>
         </defs>
 
-        {/* --- LAYER 1: WIDE AMBIENT WATER RIVERBED --- */}
+        {/* --- LAYER 1: AMBIENT WATER RIVERBED --- */}
         <path
           d={riverPathD}
           fill="none"
           stroke="url(#river-gradient)"
-          strokeWidth="65"
+          strokeWidth="45"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="water-ripple-effect opacity-80"
+          className="water-ripple-effect opacity-60"
         />
 
-        {/* --- LAYER 2: SHIMMERING ACTIVE CURRENT 1 (Main Stream) --- */}
+        {/* --- LAYER 2: SHIMMERING ACTIVE CURRENT --- */}
         <path
           ref={flowCoreRef}
           d={riverPathD}
           fill="none"
           stroke="url(#stream-shimmer)"
-          strokeWidth="20"
+          strokeWidth="14"
           strokeLinecap="round"
-          className="water-ripple-effect opacity-60 mix-blend-overlay"
+          className="water-ripple-effect opacity-40 mix-blend-overlay"
         />
 
-        {/* --- LAYER 2B: INNER LIQUID CURRENT SHIMMER VEINS (Continuous flowing water) --- */}
+        {/* --- LAYER 2B: INNER LIQUID SHIMMER VEINS --- */}
         <path
           d={riverPathD}
           fill="none"
           stroke="#F2EFE7"
-          strokeWidth="3"
+          strokeWidth="2"
           strokeLinecap="round"
-          className="water-ripple-effect opacity-35 mix-blend-screen"
+          className="water-ripple-effect opacity-20 mix-blend-screen"
         />
 
         <path
@@ -321,94 +308,6 @@ export const BackgroundStream: React.FC<BackgroundStreamProps> = ({ scrollY, act
           strokeLinecap="round"
           className="water-ripple-effect opacity-20 mix-blend-color-dodge"
         />
-
-        {/* --- SPECIAL ENVIRONMENT POOLS --- */}
-        {/* Lotus Pond Center Expansion (Y=3500) */}
-        <circle
-          cx="500"
-          cy="3500"
-          r="140"
-          fill="#1E5D45"
-          fillOpacity="0.15"
-          stroke="#F2EFE7"
-          strokeOpacity="0.1"
-          strokeWidth="2"
-          className="water-ripple-effect"
-        />
-        <circle
-          cx="500"
-          cy="3500"
-          r="95"
-          fill="none"
-          stroke="#B9964B"
-          strokeOpacity="0.12"
-          strokeWidth="1"
-          strokeDasharray="4 8"
-        />
-
-        {/* Reflection Pool Center Expansion (Y=4500) */}
-        <rect
-          x="350"
-          y="4320"
-          width="300"
-          height="360"
-          rx="25"
-          fill="#1E5D45"
-          fillOpacity="0.12"
-          stroke="#F2EFE7"
-          strokeOpacity="0.08"
-          strokeWidth="3"
-          className="water-ripple-effect"
-        />
-
-        {/* Meditation Deck Stone Bowl (Y=6500) */}
-        <circle
-          cx="500"
-          cy="6500"
-          r="110"
-          fill="#0B3D2E"
-          stroke="#8D8F86"
-          strokeWidth="14"
-          className="shadow-2xl"
-        />
-        <circle
-          cx="500"
-          cy="6500"
-          r="92"
-          fill="#1E5D45"
-          fillOpacity="0.4"
-          stroke="#B9964B"
-          strokeOpacity="0.25"
-          strokeWidth="2"
-          className="water-ripple-effect"
-        />
-        
-        {/* Dripping Ripple Waves (Drips triggered periodically from CSS/JS) */}
-        <circle cx="500" cy="6500" r="10" fill="none" stroke="#F2EFE7" strokeWidth="1" opacity="0">
-          <animate attributeName="r" values="10;90" dur="4s" repeatCount="indefinite" />
-          <animate attributeName="opacity" values="0.7;0" dur="4s" repeatCount="indefinite" />
-        </circle>
-        <circle cx="500" cy="6500" r="10" fill="none" stroke="#B9964B" strokeWidth="1" opacity="0">
-          <animate attributeName="r" values="10;90" dur="4s" begin="2s" repeatCount="indefinite" />
-          <animate attributeName="opacity" values="0.4;0" dur="4s" begin="2s" repeatCount="indefinite" />
-        </circle>
-
-        {/* --- DECORATIVE MOSS ROCKS AND FLOATING LEAVES --- */}
-        {/* Stone shapes strategically placed bordering the river */}
-        <g id="riverbank-details" fill="#8D8F86" opacity="0.4">
-          {/* Rocks Section 2 (The Stream) */}
-          <path d="M 400,1200 Q 370,1180 380,1230 Z" fill="#4A3426" />
-          <path d="M 610,1350 Q 640,1380 590,1400 Z" fill="#8D8F86" />
-          <path d="M 410,1720 Q 390,1760 430,1780 Z" fill="#5B7F4F" />
-          
-          {/* Rocks Section 3 (The Forest) */}
-          <path d="M 620,2250 Q 590,2290 630,2300 Z" fill="#8D8F86" />
-          <path d="M 370,2650 Q 380,2600 410,2630 Z" fill="#4A3426" />
-          
-          {/* Rocks Section 5 (Meditation Deck) */}
-          <path d="M 380,5350 Q 360,5400 390,5420 Z" fill="#8D8F86" />
-          <path d="M 600,5650 Q 640,5620 610,5680 Z" fill="#5B7F4F" />
-        </g>
 
         {/* --- LAYER 3: THE GOLDEN FLIGHT OF THE LOTUS PETAL --- */}
         {/* This invisible guiding path is identical to the visual river path */}
@@ -422,28 +321,16 @@ export const BackgroundStream: React.FC<BackgroundStreamProps> = ({ scrollY, act
         />
 
         {/* Floating Lotus Petal Element */}
-        <g ref={petalRef} id="petal-guide" style={{ cursor: "pointer" }}>
-          {/* Pulsing visual indicator around the petal */}
-          <circle cx="0" cy="0" r="22" fill="#B9964B" fillOpacity="0.15" filter="url(#glow)">
-            <animate attributeName="r" values="18;26;18" dur="3s" repeatCount="indefinite" />
-            <animate attributeName="fill-opacity" values="0.1;0.25;0.1" dur="3s" repeatCount="indefinite" />
-          </circle>
+        <g ref={petalRef} id="petal-guide" style={{ pointerEvents: "none" }}>
+          {/* Subtle glow around petal */}
+          <circle cx="0" cy="0" r="10" fill="#B9964B" fillOpacity="0.12" />
           {/* The Golden Lotus Petal geometry */}
           <path
-            d="M 0,-15 C 8,-5 12,5 0,16 C -12,5 -8,-5 0,-15 Z"
+            d="M 0,-12 C 6,-4 10,4 0,13 C -10,4 -6,-4 0,-12 Z"
             fill="url(#golden-petal)"
             stroke="#F2EFE7"
-            strokeWidth="1.2"
+            strokeWidth="1"
             filter="url(#glow)"
-            style={{ transform: "scale(1.2)" }}
-          />
-          {/* Inner details */}
-          <path
-            d="M 0,-12 C 3,-4 3,4 0,10"
-            fill="none"
-            stroke="#F2EFE7"
-            strokeWidth="0.5"
-            opacity="0.6"
           />
         </g>
 
