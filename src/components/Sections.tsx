@@ -109,6 +109,9 @@ export const Sections: React.FC<SectionsProps> = ({
   // Service filter tab state
   const [therapyCategory, setTherapyCategory] = useState<string>("All");
 
+  // Show more therapies toggle on Home page
+  const [showMoreHomeTherapies, setShowMoreHomeTherapies] = useState(false);
+
   // Track user-selected pricing option per service id
   const [selectedOptions, setSelectedOptions] = useState<Record<string, number>>({});
 
@@ -227,14 +230,14 @@ export const Sections: React.FC<SectionsProps> = ({
             {/* Background image overlay */}
             <div className="absolute inset-0 z-0">
               <img
-                src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1600&q=80"
-                alt="Spa Sanctuary"
-                className="w-full h-full object-cover opacity-35 scale-105 filter blur-[1px]"
+                src="https://i.ibb.co/kg6pkpkv/Whats-App-Image-2026-07-25-at-18-30-06.jpg"
+                alt="Pure Bliss Spa Sanctuary Landing Background"
+                className="w-full h-full object-cover opacity-40 scale-105 filter brightness-90"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 bg-gradient-to-b from-[#0c0f0e]/95 via-[#0c0f0e]/85 to-[#0c0f0e]/95" />
+              <div className="absolute inset-0 bg-gradient-to-b from-[#0c0f0e]/90 via-[#0c0f0e]/75 to-[#0c0f0e]/95" />
               {/* Radial glow overlay */}
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(185,150,75,0.15)_0%,transparent_70%)]" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(185,150,75,0.18)_0%,transparent_70%)]" />
             </div>
 
             {/* Central Typography and Visual Hook */}
@@ -269,7 +272,7 @@ export const Sections: React.FC<SectionsProps> = ({
                 <div className="mt-6 p-4 md:p-6 rounded-3xl bg-gradient-to-r from-brass/15 via-white/5 to-transparent border border-brass/30 shadow-2xl backdrop-blur-md max-w-4xl grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
                   <div className="md:col-span-5 relative rounded-2xl overflow-hidden h-48 md:h-44 border border-brass/20 shadow-xl group">
                     <img
-                      src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80"
+                      src="https://i.ibb.co/kg6pkpkv/Whats-App-Image-2026-07-25-at-18-30-06.jpg"
                       alt="Premium Male to Male Spa JP Nagar"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-95"
                       referrerPolicy="no-referrer"
@@ -315,16 +318,15 @@ export const Sections: React.FC<SectionsProps> = ({
                     <span>🌿 EXPLORE THERAPIES</span>
                     <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
                   </button>
-                  <button
-                    onClick={() => {
-                      setActiveTab("contact");
-                      window.scrollTo({ top: 0, behavior: "instant" });
-                    }}
-                    className="px-8 py-4 bg-white/5 hover:bg-white/10 text-lotus border border-white/20 hover:border-brass/50 font-sans font-black text-sm tracking-[0.2em] uppercase rounded-full transition-all duration-300 flex items-center justify-center gap-2.5 cursor-pointer"
+                  <a
+                    href="https://wa.me/917411397005?text=Hello%20Pure%20Bliss%20Wellness!%20I%20would%20like%20to%20reserve%20a%20spa%20session%20at%20your%20JP%20Nagar%206th%20Phase%20Sanctuary."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-8 py-4 bg-emerald-600/30 hover:bg-emerald-600/45 text-emerald-300 border border-emerald-500/50 hover:border-emerald-400 font-sans font-black text-sm tracking-[0.2em] uppercase rounded-full transition-all duration-300 flex items-center justify-center gap-2.5 cursor-pointer shadow-xl"
                     id="reserve-session-hero-btn"
                   >
-                    <span>📅 RESERVE SESSION</span>
-                  </button>
+                    <span>💬 RESERVE VIA WHATSAPP</span>
+                  </a>
                 </div>
               </motion.div>
             </div>
@@ -441,10 +443,11 @@ export const Sections: React.FC<SectionsProps> = ({
             {/* Bottom Guidance Area */}
             <div className="z-10 flex justify-between items-end w-full border-t border-white/5 pt-4">
               <button
-                onClick={() => handleScrollToHomeSection("section-signature")}
+                onClick={() => handleScrollToHomeSection("section-budget-therapies")}
                 className="flex gap-2 items-center text-xs font-bold font-sans text-stone/80 hover:text-brass transition-colors tracking-widest uppercase cursor-pointer"
               >
-                <span>Descend Downstream</span>
+                <Compass size={16} className="animate-spin-slow text-brass" />
+                <span>Popular Therapies Below</span>
               </button>
               <div className="text-right">
                 <span className="font-serif text-xl italic text-brass font-light leading-none block">
@@ -452,6 +455,130 @@ export const Sections: React.FC<SectionsProps> = ({
                 </span>
                 <span className="font-sans text-xs tracking-[0.25em] text-stone uppercase font-bold">
                   Chapter II
+                </span>
+              </div>
+            </div>
+          </section>
+
+          {/* HOME SECTION 2.5: FEATURED ENTRY & AFFORDABLE THERAPIES */}
+          <section
+            id="section-budget-therapies"
+            className="relative w-full min-h-screen h-auto flex flex-col justify-between px-4 py-12 sm:px-8 md:px-16 bg-[#0a0d0c] overflow-hidden"
+          >
+            <div className="z-10 max-w-6xl mx-auto w-full my-auto text-center space-y-8">
+              <div>
+                <span className="font-sans text-xs sm:text-sm tracking-[0.3em] text-brass uppercase font-bold block mb-2">
+                  ✨ Affordable & Essential Care
+                </span>
+                <h2 className="font-serif text-3xl sm:text-5xl text-lotus font-light">
+                  Popular & <span className="italic text-brass font-normal">Budget Therapies</span>
+                </h2>
+                <p className="font-sans text-sm md:text-base text-stone max-w-2xl mx-auto mt-2 tracking-wide font-light">
+                  Start your recovery with our most accessible session tiers. Professional male therapists, private hygienic rooms, and transparent pricing.
+                </p>
+              </div>
+
+              {/* Grid of Therapies (Initially shows 4 basic cheap therapies, expands when Show More is clicked) */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
+                {(showMoreHomeTherapies ? services : services.slice(0, 4)).map((srv) => {
+                  let price = srv.price || "";
+                  let duration = srv.duration || "";
+                  if (srv.options && srv.options.length > 0) {
+                    price = srv.options[0].price;
+                    duration = srv.options[0].duration;
+                  }
+
+                  return (
+                    <motion.div
+                      key={srv.id}
+                      layout
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      className="p-5 rounded-2xl border border-white/10 bg-gradient-to-b from-stone-900/60 to-stone-900/20 frosted-glass flex flex-col justify-between hover:border-brass/40 transition-all duration-300 shadow-xl relative group"
+                    >
+                      <div className="space-y-3">
+                        <div className="flex justify-between items-center text-xs font-bold uppercase tracking-wider text-stone">
+                          <span className="px-2.5 py-1 rounded bg-white/5 border border-white/5 text-brass">
+                            {srv.category}
+                          </span>
+                          <span className="flex items-center gap-1 text-stone/90">
+                            <Clock size={13} className="text-brass" />
+                            {duration}
+                          </span>
+                        </div>
+
+                        <h3 className="font-serif text-2xl text-lotus font-bold group-hover:text-brass transition-colors">
+                          {srv.name}
+                        </h3>
+
+                        <p className="font-sans text-xs sm:text-sm text-lotus/80 font-light line-clamp-3 leading-relaxed">
+                          {srv.description}
+                        </p>
+                      </div>
+
+                      <div className="pt-6 mt-4 border-t border-white/5 space-y-3">
+                        <div className="flex justify-between items-baseline">
+                          <span className="text-[11px] font-bold text-stone uppercase tracking-wider">Starts From</span>
+                          <span className="font-serif text-2xl font-black text-brass">{price}</span>
+                        </div>
+
+                        <div className="flex gap-2">
+                          <a
+                            href={`https://wa.me/917411397005?text=${encodeURIComponent(
+                              `Hello Pure Bliss Wellness! I want to reserve the ${srv.name} (${price}).`
+                            )}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-full py-2.5 bg-emerald-600/30 hover:bg-emerald-600/50 text-emerald-300 border border-emerald-500/40 rounded-xl font-sans text-xs font-bold tracking-wider uppercase flex items-center justify-center gap-1.5 transition-all text-center"
+                          >
+                            <span>💬 WhatsApp Book</span>
+                          </a>
+                        </div>
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </div>
+
+              {/* Action Buttons: Show More / Show Less */}
+              <div className="pt-4 flex flex-col sm:flex-row justify-center items-center gap-4">
+                <button
+                  onClick={() => setShowMoreHomeTherapies(!showMoreHomeTherapies)}
+                  className="px-8 py-3.5 bg-brass hover:bg-lotus text-[#0c0f0e] font-sans font-black text-xs sm:text-sm tracking-[0.2em] uppercase rounded-full shadow-2xl transition-all duration-300 cursor-pointer flex items-center gap-2"
+                  id="show-more-home-therapies-btn"
+                >
+                  <span>{showMoreHomeTherapies ? "SHOW LESS THERAPIES" : "SHOW MORE THERAPIES"}</span>
+                  <ArrowRight size={16} className={showMoreHomeTherapies ? "-rotate-90 transition-transform" : "rotate-90 transition-transform"} />
+                </button>
+
+                <button
+                  onClick={() => {
+                    setActiveTab("therapies");
+                    window.scrollTo({ top: 0, behavior: "instant" });
+                  }}
+                  className="px-8 py-3.5 bg-white/5 hover:bg-white/10 text-lotus border border-white/15 hover:border-brass/40 font-sans font-bold text-xs sm:text-sm tracking-[0.2em] uppercase rounded-full transition-all duration-300 cursor-pointer"
+                  id="full-therapies-catalog-btn"
+                >
+                  EXPLORE FULL CATALOG & CATEGORIES
+                </button>
+              </div>
+            </div>
+
+            {/* Bottom Guidance Area */}
+            <div className="z-10 flex justify-between items-end w-full border-t border-white/5 pt-4">
+              <button
+                onClick={() => handleScrollToHomeSection("section-signature")}
+                className="flex gap-2 items-center text-xs font-bold font-sans text-stone/80 hover:text-brass transition-colors tracking-widest uppercase cursor-pointer"
+              >
+                <span>Descend Downstream</span>
+              </button>
+              <div className="text-right">
+                <span className="font-serif text-xl italic text-brass font-light leading-none block">
+                  The Flow of Care (सेवा)
+                </span>
+                <span className="font-sans text-xs tracking-[0.25em] text-stone uppercase font-bold">
+                  Chapter II.B
                 </span>
               </div>
             </div>
