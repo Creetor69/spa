@@ -66,7 +66,14 @@ export default function App() {
             className="flex items-center gap-2 sm:gap-3 hover:opacity-85 transition-opacity text-left cursor-pointer"
             id="header-logo-btn"
           >
-            <Flower2 className="text-brass animate-spin-slow shrink-0" size={20} />
+            <div className="w-11 h-11 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-brass/80 shrink-0 shadow-[0_0_15px_rgba(185,150,75,0.4)] flex items-center justify-center bg-[#0c0f0e]">
+              <img
+                src="https://i.ibb.co/93CPrBWC/global-000054e2ea70026d-0000015f-2-000054e2ea70026d-0000000000000001-7c3179df6256d115-00000212c420.png"
+                alt="Pure Bliss Wellness Logo"
+                className="w-full h-full object-cover scale-95 -translate-x-[2px]"
+                referrerPolicy="no-referrer"
+              />
+            </div>
             <span className="font-serif text-base sm:text-lg md:text-xl tracking-[0.15em] sm:tracking-[0.2em] text-lotus font-bold uppercase whitespace-nowrap">
               Pure Bliss Wellness
             </span>
@@ -75,7 +82,7 @@ export default function App() {
           {/* Header Right: Hamburger Menu Button for all devices */}
           <div className="flex items-center gap-3">
             <a
-              href="https://wa.me/919886012345?text=Hello%20Pure%20Bliss%20Wellness,%20I%20would%20like%20to%20book%20a%20spa%20session%20at%20JP%20Nagar."
+              href="https://wa.me/917411397005?text=Hello%20Pure%20Bliss%20Wellness,%20I%20would%20like%20to%20book%20a%20spa%20session%20at%20JP%20Nagar."
               target="_blank"
               rel="noopener noreferrer"
               className="hidden xs:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-400 border border-emerald-500/30 text-xs font-bold uppercase tracking-wider transition-all"
@@ -143,7 +150,7 @@ export default function App() {
                 <span>Get Google Maps Directions</span>
               </a>
               <p className="text-stone/80 tracking-wider uppercase font-medium text-[11px] leading-tight">
-                📍 No. 583, 1st Floor, 16th Cross, Sarakki, JP Nagar 6th Phase, Bengaluru • +91 98860 12345
+                📍 No. 583, 1st Floor, 16th Cross, Sarakki, JP Nagar 6th Phase, Bengaluru • +91 74113 97005
               </p>
             </div>
           </motion.div>

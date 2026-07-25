@@ -178,5 +178,47 @@ export const services: Service[] = [
       { name: "Steam Bath 90 Minutes", duration: "90 Minutes", price: "₹ 2,000" },
       { name: "Steam Bath 120 Minutes", duration: "120 Minutes", price: "₹ 2,500" }
     ]
+  },
+  {
+    id: "sadhana-pass",
+    name: "Membership: Sadhana Pass",
+    description: "3 Sessions/Month Pass. Ideal for regular monthly recovery and physical balance.",
+    duration: "Monthly Pass",
+    price: "₹ 3,999/-",
+    category: "Memberships",
+    benefits: [
+      "3 Sessions per Month",
+      "Valid for 30 Days",
+      "Choice of Swedish, Deep Tissue or Ayurvedic",
+      "Priority Appointment Slot Booking"
+    ]
+  },
+  {
+    id: "prana-circle",
+    name: "Membership: Prana Circle",
+    description: "6 Sessions/Month Pass + Steam Access. Our most popular comprehensive wellness pass.",
+    duration: "Monthly Pass",
+    price: "₹ 6,999/-",
+    category: "Memberships",
+    benefits: [
+      "6 Sessions per Month",
+      "Includes Complimentary Steam Bath",
+      "Transferable to 1 Family/Friend Guest",
+      "Discreet Priority Locker Suite"
+    ]
+  },
+  {
+    id: "samadhi-circle",
+    name: "Membership: Samadhi Circle",
+    description: "10 Sessions/Month Pass + 4-Hands Upgrade. Ultimate luxury care for high-stress executives.",
+    duration: "Monthly Pass",
+    price: "₹ 11,999/-",
+    category: "Memberships",
+    benefits: [
+      "10 Sessions per Month",
+      "Includes 1 Four-Hands Synchronized Upgrade",
+      "Unlimited Organic Steam Bath Access",
+      "VIP Dedicated Male Therapist Assignment"
+    ]
   }
 ];

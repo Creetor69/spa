@@ -115,7 +115,6 @@ export const Sections: React.FC<SectionsProps> = ({
   // Booking Form State
   const [bookingForm, setBookingForm] = useState({
     name: "",
-    email: "",
     phone: "",
     serviceId: "dry-massage",
     optionIdx: 0,
@@ -170,7 +169,7 @@ export const Sections: React.FC<SectionsProps> = ({
       `Branch: Pure Bliss Wellness, 1st Floor, No. 583, JP Nagar 6th Phase, Bengaluru.`
     );
 
-    window.open(`https://wa.me/919886012345?text=${message}`, '_blank');
+    window.open(`https://wa.me/917411397005?text=${message}`, '_blank');
   };
 
   // Reset booking form
@@ -178,7 +177,6 @@ export const Sections: React.FC<SectionsProps> = ({
     setBookingSuccess(false);
     setBookingForm({
       name: "",
-      email: "",
       phone: "",
       serviceId: "dry-massage",
       optionIdx: 0,
@@ -213,7 +211,7 @@ export const Sections: React.FC<SectionsProps> = ({
   const bookingDetails = getSelectedBookingDetails();
 
   return (
-    <div className="relative w-full text-lotus select-none pt-16 sm:pt-20">
+    <div className="relative w-full text-lotus select-none pt-12 sm:pt-14">
       
       {/* =========================================================================
           TAB 1: HOME (5 VERTICAL SCROLLABLE PAGES / SECTIONS)
@@ -224,7 +222,7 @@ export const Sections: React.FC<SectionsProps> = ({
           {/* HOME SECTION 1: HERO / THE SANCTUARY */}
           <section
             id="section-hero"
-            className="relative w-full min-h-screen h-auto flex flex-col justify-between px-4 py-10 sm:px-8 sm:py-16 md:px-16 overflow-hidden"
+            className="relative w-full min-h-[calc(100vh-3.5rem)] h-auto flex flex-col justify-between px-4 py-4 sm:px-8 sm:py-8 md:px-16 overflow-hidden"
           >
             {/* Background image overlay */}
             <div className="absolute inset-0 z-0">
@@ -239,11 +237,8 @@ export const Sections: React.FC<SectionsProps> = ({
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(185,150,75,0.15)_0%,transparent_70%)]" />
             </div>
 
-            {/* Top Empty Space to offset sticky header */}
-            <div className="h-6" />
-
             {/* Central Typography and Visual Hook */}
-            <div className="z-10 my-auto max-w-5xl text-left md:pl-4 lg:pl-8 py-6">
+            <div className="z-10 my-auto max-w-5xl text-left md:pl-4 lg:pl-8 py-2">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -267,7 +262,7 @@ export const Sections: React.FC<SectionsProps> = ({
                 </h1>
                 
                 <p className="font-sans text-base md:text-lg lg:text-xl text-lotus/90 leading-relaxed max-w-3xl tracking-wide font-light">
-                  Dark Light Spa is JP Nagar's premier male-to-male spa, dedicated to providing professional, discreet, and tailored massage therapies. We offer a modern sanctuary where men can genuinely unwind and recharge on <strong>1st Floor, No. 583, 16th Cross, Sarakki, JP Nagar 6th Phase</strong> (Near JP Nagar Metro Station).
+                  Pure Bliss Wellness is JP Nagar's premier male-to-male spa, dedicated to providing professional, discreet, and tailored massage therapies. We offer a modern sanctuary where men can genuinely unwind and recharge on <strong>1st Floor, No. 583, 16th Cross, Sarakki, JP Nagar 6th Phase</strong> (Near JP Nagar Metro Station).
                 </p>
 
                 {/* FEATURED LANDING BIMAGE CARD - MALE TO MALE SPA HIGHLIGHT */}
@@ -726,7 +721,7 @@ export const Sections: React.FC<SectionsProps> = ({
                     <Phone className="text-brass shrink-0 mt-0.5" size={18} />
                     <div>
                       <strong className="text-brass font-bold block">Reserve Over Call</strong>
-                      <span className="text-lotus/90 font-light">+91 98860 12345 / +91 80 4567 8910</span>
+                      <span className="text-lotus/90 font-light">+91 74113 97005</span>
                     </div>
                   </div>
 
@@ -734,7 +729,7 @@ export const Sections: React.FC<SectionsProps> = ({
                     <Clock className="text-brass shrink-0 mt-0.5" size={18} />
                     <div>
                       <strong className="text-brass font-bold block">Working Hours</strong>
-                      <span className="text-lotus/90 font-light">10:00 AM - 9:00 PM (Everyday)</span>
+                      <span className="text-lotus/90 font-light">9:00 AM - 10:00 PM (Everyday)</span>
                     </div>
                   </div>
                 </div>
@@ -1017,14 +1012,22 @@ export const Sections: React.FC<SectionsProps> = ({
 
                   <button
                     onClick={() => {
+                      const passIdMap: Record<string, string> = {
+                        m1: "sadhana-pass",
+                        m2: "prana-circle",
+                        m3: "samadhi-circle"
+                      };
+                      const targetServiceId = passIdMap[m.id] || "sadhana-pass";
                       setBookingForm((prev) => ({
                         ...prev,
-                        notes: `Enquiring for membership: ${m.name}`
+                        serviceId: targetServiceId,
+                        optionIdx: 0,
+                        notes: `Selected package: ${m.name}`
                       }));
                       setActiveTab("contact");
                       window.scrollTo({ top: 0, behavior: "instant" });
                     }}
-                    className="w-full py-3.5 bg-brass hover:bg-lotus text-[#0c0f0e] font-sans font-black text-xs md:text-sm tracking-widest uppercase rounded-full transition-all duration-300 text-center"
+                    className="w-full py-3.5 bg-brass hover:bg-lotus text-[#0c0f0e] font-sans font-black text-xs md:text-sm tracking-widest uppercase rounded-full transition-all duration-300 text-center cursor-pointer"
                     id={`member-btn-${m.id}`}
                   >
                     ACTIVATE MEMBERSHIP
@@ -1077,14 +1080,14 @@ export const Sections: React.FC<SectionsProps> = ({
             {/* Description */}
             <div className="space-y-6">
               <span className="font-sans text-sm tracking-[0.3em] text-brass uppercase font-black block">
-                About Us — Dark Light Spa
+                About Us — Pure Bliss Wellness
               </span>
               <h1 className="font-serif text-5xl md:text-6xl text-lotus font-light leading-tight">
                 Your Sanctuary for <br />
                 <span className="italic text-brass font-normal">Men's Wellness</span>
               </h1>
               <p className="font-sans text-base md:text-lg text-lotus/85 leading-relaxed font-light">
-                Dark Light Spa is JP Nagar's premier male-to-male spa, dedicated to providing professional, discreet, and tailored massage therapies. We offer a modern sanctuary where men can genuinely unwind and recharge.
+                Pure Bliss Wellness is JP Nagar's premier male-to-male spa, dedicated to providing professional, discreet, and tailored massage therapies. We offer a modern sanctuary where men can genuinely unwind and recharge.
               </p>
               <p className="font-sans text-base md:text-lg text-lotus/85 leading-relaxed font-light">
                 Located on the 1st Floor at No. 583, 16th Cross, Sarakki, JP Nagar 6th Phase (Near to JP Nagar Metro Station), our private hygienic suites offer safe, certified professional care using premium organic massage oils and steam.
@@ -1105,7 +1108,7 @@ export const Sections: React.FC<SectionsProps> = ({
             <div className="relative rounded-3xl overflow-hidden border border-brass/20 shadow-2xl h-96 group">
               <img
                 src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80"
-                alt="Dark Light Spa Sanctuary Suite"
+                alt="Pure Bliss Wellness Sanctuary Suite"
                 className="w-full h-full object-cover filter brightness-90 group-hover:scale-105 transition-transform duration-700"
                 referrerPolicy="no-referrer"
               />
@@ -1114,14 +1117,55 @@ export const Sections: React.FC<SectionsProps> = ({
                 ✨ JP Nagar Male Spa Suite
               </div>
               <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-[#0c0f0e]/85 border border-white/10 text-center">
-                <span className="font-serif text-sm italic text-brass block">Dark Light Spa — 1st Floor, No. 583, JP Nagar 6th Phase</span>
+                <span className="font-serif text-sm italic text-brass block">Pure Bliss Wellness — 1st Floor, No. 583, JP Nagar 6th Phase</span>
                 <span className="font-sans text-[11px] text-stone uppercase tracking-wider font-bold">Bangalore's Premier Male-to-Male Spa</span>
               </div>
             </div>
 
           </div>
 
-          {/* Pillars of Sanctuary Details matching Dark Light Spa */}
+          {/* SIGNATURE WELLNESS PHILOSOPHY CARD */}
+          <div className="p-8 md:p-12 rounded-3xl bg-gradient-to-br from-[#121815] via-[#0e1311] to-[#0a0d0c] border border-brass/35 shadow-2xl relative overflow-hidden space-y-6">
+            <div className="flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
+              <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-brass shadow-[0_0_30px_rgba(185,150,75,0.45)] shrink-0 flex items-center justify-center bg-[#0c0f0e]">
+                <img
+                  src="https://i.ibb.co/93CPrBWC/global-000054e2ea70026d-0000015f-2-000054e2ea70026d-0000000000000001-7c3179df6256d115-00000212c420.png"
+                  alt="Pure Bliss Wellness Brand Logo"
+                  className="w-full h-full object-cover scale-95 -translate-x-[2px]"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+              <div className="space-y-2">
+                <span className="font-sans text-xs tracking-[0.3em] text-brass uppercase font-black block">
+                  The Pure Bliss Signature Philosophy
+                </span>
+                <h2 className="font-serif text-3xl md:text-5xl text-lotus font-light leading-tight">
+                  Water, Luxury & <span className="italic text-brass font-normal">Serenity</span>
+                </h2>
+              </div>
+            </div>
+
+            <p className="font-sans text-base md:text-lg text-lotus/90 leading-relaxed font-light">
+              At Pure Bliss Wellness, our signature philosophy is anchored in the divine connection between <strong>water, luxury, and serenity</strong>. Water is nature's purest element for physical cleansing and restorative flow—when paired with warm Kerala medicated oils, sandalwood herbal steam heat, and bespoke male-to-male therapeutic touch, accumulated stress effortlessly dissolves. True luxury lies in absolute privacy, immaculate hygiene, and certified expert male care. Step into our sanctuary where mental noise subsides, leaving you deeply centered, refreshed, and in a state of pure bliss.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-white/10">
+              <div className="p-4.5 rounded-2xl bg-white/5 border border-white/5 text-center space-y-1.5">
+                <span className="font-serif text-xl text-brass font-bold block">💧 Water</span>
+                <p className="font-sans text-xs text-stone leading-relaxed">Elemental steam detoxification, herbal water infusion & deep circulatory restoration</p>
+              </div>
+              <div className="p-4.5 rounded-2xl bg-white/5 border border-white/5 text-center space-y-1.5">
+                <span className="font-serif text-xl text-brass font-bold block">✨ Luxury</span>
+                <p className="font-sans text-xs text-stone leading-relaxed">Pristine private suites, organic medicated oils & 100% certified male therapist mastery</p>
+              </div>
+              <div className="p-4.5 rounded-2xl bg-white/5 border border-white/5 text-center space-y-1.5">
+                <span className="font-serif text-xl text-brass font-bold block">🧘 Serenity</span>
+                <p className="font-sans text-xs text-stone leading-relaxed">Quiet, discreet ambiance crafted specifically for modern men seeking total peace</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Pillars of Sanctuary Details */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
             <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-brass/30 transition-all space-y-4">
@@ -1210,22 +1254,10 @@ export const Sections: React.FC<SectionsProps> = ({
                           required
                           value={bookingForm.phone}
                           onChange={(e) => setBookingForm({ ...bookingForm, phone: e.target.value })}
-                          placeholder="e.g. +91 98860 12345"
+                          placeholder="e.g. +91 74113 97005"
                           className="w-full px-4 py-3.5 rounded-xl bg-white/5 border border-white/10 text-lotus text-sm font-sans font-medium focus:border-brass/50 focus:outline-none focus:ring-0 transition-colors"
                         />
                       </div>
-                    </div>
-
-                    <div className="space-y-1.5">
-                      <label className="text-xs tracking-wider text-brass uppercase font-bold block">Email Address</label>
-                      <input
-                        type="email"
-                        required
-                        value={bookingForm.email}
-                        onChange={(e) => setBookingForm({ ...bookingForm, email: e.target.value })}
-                        placeholder="e.g. client@domain.com"
-                        className="w-full px-4 py-3.5 rounded-xl bg-white/5 border border-white/10 text-lotus text-sm font-sans font-medium focus:border-brass/50 focus:outline-none focus:ring-0 transition-colors"
-                      />
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -1373,7 +1405,7 @@ export const Sections: React.FC<SectionsProps> = ({
 
                     <div className="flex flex-col sm:flex-row gap-3 justify-center items-center pt-2">
                       <a
-                        href={`https://wa.me/919886012345?text=${encodeURIComponent(
+                        href={`https://wa.me/917411397005?text=${encodeURIComponent(
                           `Hello Pure Bliss Wellness! I am following up on my booking for ${bookingDetails.serviceName} on ${bookingForm.date} at ${bookingForm.time}.`
                         )}`}
                         target="_blank"
@@ -1464,10 +1496,9 @@ export const Sections: React.FC<SectionsProps> = ({
                   </div>
 
                   <div className="space-y-1">
-                    <strong className="text-brass font-bold uppercase block text-xs">Direct Hotlines</strong>
+                    <strong className="text-brass font-bold uppercase block text-xs">Direct Hotline</strong>
                     <p className="text-lotus/90 font-light">
-                      📞 +91 98860 12345 <br />
-                      📞 +91 80 4567 8910
+                      📞 +91 74113 97005
                     </p>
                   </div>
 
