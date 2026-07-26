@@ -50,7 +50,7 @@ const testimonialsData: Testimonial[] = [
     id: "t3",
     name: "Dr. Alok Prasad",
     role: "Medical Practitioner • Koramangala",
-    text: "They use authentic Kerala warm medicated oils for Abhyanga, followed by a sandalwood steam bath. Pure Bliss maintains clinical-grade cleanliness and genuine male therapist expertise."
+    text: "They use authentic Kerala warm medicated oils for Abhyanga, followed by deep somatic relaxation. Pure Bliss maintains clinical-grade cleanliness and genuine male therapist expertise."
   },
   {
     id: "t4",
@@ -69,7 +69,7 @@ const membershipsData: MembershipPlan[] = [
     description: "A monthly ritual of rejuvenation to anchor your busy modern schedule.",
     features: [
       "1 Custom 75-Min Swedish or Deep Tissue Massage",
-      "Unlimited access to the Forest Sandalwood Steam Facility",
+      "Unlimited access to private relaxation lounge",
       "10% off any additional specialized treatments"
     ]
   },
@@ -81,7 +81,7 @@ const membershipsData: MembershipPlan[] = [
     description: "Align your physical elements with the seasonal rhythms.",
     features: [
       "3 Custom 90-Min Signature Ayurvedic or Hot Stone Rituals",
-      "Private steam session & Ayurvedic herbal tea pairing",
+      "Private herbal tea & relaxation pairing",
       "Priority booking for prime holiday and weekend slots",
       "Complimentary head massage add-on with each visit"
     ]
@@ -432,7 +432,7 @@ export const Sections: React.FC<SectionsProps> = ({
                       🪷 3. Renew (The Lotus Awakening)
                     </h3>
                     <p className="font-sans text-sm md:text-base text-lotus/90 leading-relaxed font-light">
-                      Emerge with full somatic restoration. Clear pores, smooth scrub-polished skin, and a completely refreshed spirit. Our therapeutic steam sessions ensure toxins are purged, leaving you fully re-energized.
+                      Emerge with full somatic restoration. Clear pores, smooth scrub-polished skin, and a completely refreshed spirit. Our therapeutic sessions ensure toxins are purged, leaving you fully re-energized.
                     </p>
                   </div>
                 </motion.div>
@@ -648,7 +648,7 @@ export const Sections: React.FC<SectionsProps> = ({
                 </h2>
                 
                 <p className="font-sans text-sm md:text-base lg:text-lg text-lotus/90 leading-relaxed font-light">
-                  Experience full body Ayurvedic massages performed with warm, organic medicated oils sourced directly from Kerala. This ancient therapy detoxifies deep muscle layers, improves blood flow, and restores elements of health, concluding with physical steam detoxification.
+                  Experience full body Ayurvedic massages performed with warm, organic medicated oils sourced directly from Kerala. This ancient therapy detoxifies deep muscle layers, improves blood flow, and restores elements of health, concluding with complete physical relaxation.
                 </p>
 
                 <div className="space-y-3.5 pt-2">
@@ -662,7 +662,7 @@ export const Sections: React.FC<SectionsProps> = ({
                     <div className="w-6 h-6 rounded-full bg-brass/10 flex items-center justify-center text-brass shrink-0">
                       <Check size={14} />
                     </div>
-                    <span>Soothing combination of hot steam and custom herbs</span>
+                    <span>Soothing combination of custom herbs and warm oils</span>
                   </div>
                 </div>
 
@@ -1217,7 +1217,7 @@ export const Sections: React.FC<SectionsProps> = ({
                 Pure Bliss Wellness is JP Nagar's premier male-to-male spa, dedicated to providing professional, discreet, and tailored massage therapies. We offer a modern sanctuary where men can genuinely unwind and recharge.
               </p>
               <p className="font-sans text-base md:text-lg text-lotus/85 leading-relaxed font-light">
-                Located on the 1st Floor at No. 583, 16th Cross, Sarakki, JP Nagar 6th Phase (Near to JP Nagar Metro Station), our private hygienic suites offer safe, certified professional care using premium organic massage oils and steam.
+                Located on the 1st Floor at No. 583, 16th Cross, Sarakki, JP Nagar 6th Phase (Near to JP Nagar Metro Station), our private hygienic suites offer safe, certified professional care using premium organic massage oils.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 pt-2">
                 <div className="flex gap-2.5 items-center text-sm md:text-base font-sans text-brass">
@@ -1273,13 +1273,13 @@ export const Sections: React.FC<SectionsProps> = ({
             </div>
 
             <p className="font-sans text-base md:text-lg text-lotus/90 leading-relaxed font-light">
-              At Pure Bliss Wellness, our signature philosophy is anchored in the divine connection between <strong>water, luxury, and serenity</strong>. Water is nature's purest element for physical cleansing and restorative flow—when paired with warm Kerala medicated oils, sandalwood herbal steam heat, and bespoke male-to-male therapeutic touch, accumulated stress effortlessly dissolves. True luxury lies in absolute privacy, immaculate hygiene, and certified expert male care. Step into our sanctuary where mental noise subsides, leaving you deeply centered, refreshed, and in a state of pure bliss.
+              At Pure Bliss Wellness, our signature philosophy is anchored in the divine connection between <strong>water, luxury, and serenity</strong>. Water is nature's purest element for physical cleansing and restorative flow—when paired with warm Kerala medicated oils, herbal infusion heat, and bespoke male-to-male therapeutic touch, accumulated stress effortlessly dissolves. True luxury lies in absolute privacy, immaculate hygiene, and certified expert male care. Step into our sanctuary where mental noise subsides, leaving you deeply centered, refreshed, and in a state of pure bliss.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-white/10">
               <div className="p-4.5 rounded-2xl bg-white/5 border border-white/5 text-center space-y-1.5">
                 <span className="font-serif text-xl text-brass font-bold block">💧 Water</span>
-                <p className="font-sans text-xs text-stone leading-relaxed">Elemental steam detoxification, herbal water infusion & deep circulatory restoration</p>
+                <p className="font-sans text-xs text-stone leading-relaxed">Elemental detoxification, herbal water infusion & deep circulatory restoration</p>
               </div>
               <div className="p-4.5 rounded-2xl bg-white/5 border border-white/5 text-center space-y-1.5">
                 <span className="font-serif text-xl text-brass font-bold block">✨ Luxury</span>
@@ -1389,7 +1389,7 @@ export const Sections: React.FC<SectionsProps> = ({
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="space-y-1.5">
-                        <label className="text-xs tracking-wider text-brass uppercase font-bold block">Select Therapy</label>
+                        <label className="text-xs tracking-wider text-brass uppercase font-bold block">Select Therapy / Membership</label>
                         <select
                           value={bookingForm.serviceId}
                           onChange={(e) => {
@@ -1401,17 +1401,23 @@ export const Sections: React.FC<SectionsProps> = ({
                           }}
                           className="w-full px-4 py-3.5 rounded-xl bg-stone-900/90 border border-white/10 text-lotus text-sm font-sans font-medium focus:border-brass/50 focus:outline-none focus:ring-0 transition-colors"
                         >
-                          {services.map((s) => (
-                            <option key={s.id} value={s.id}>
-                              {s.name}
-                            </option>
-                          ))}
+                          {services.map((s) => {
+                            let p = s.price;
+                            if (!p && s.options && s.options.length > 0) {
+                              p = s.options[0].price;
+                            }
+                            return (
+                              <option key={s.id} value={s.id}>
+                                {s.name} {p ? `(${p})` : ""}
+                              </option>
+                            );
+                          })}
                         </select>
                       </div>
 
                       {/* Dropdown for custom tiers if available */}
                       <div className="space-y-1.5">
-                        <label className="text-xs tracking-wider text-brass uppercase font-bold block">Session Tier</label>
+                        <label className="text-xs tracking-wider text-brass uppercase font-bold block">Session Tier & Price</label>
                         {(() => {
                           const activeSrv = services.find((s) => s.id === bookingForm.serviceId) || services[0];
                           if (activeSrv.options && activeSrv.options.length > 0) {
@@ -1423,15 +1429,16 @@ export const Sections: React.FC<SectionsProps> = ({
                               >
                                 {activeSrv.options.map((opt, oIdx) => (
                                   <option key={oIdx} value={oIdx}>
-                                    {opt.name} ({opt.price})
+                                    {opt.name} — {opt.price}
                                   </option>
                                 ))}
                               </select>
                             );
                           } else {
                             return (
-                              <div className="w-full px-4 py-3.5 rounded-xl bg-white/5 border border-white/10 text-stone text-sm font-sans font-medium">
-                                Standard Session ({activeSrv.duration || "N/A"})
+                              <div className="w-full px-4 py-3.5 rounded-xl bg-white/5 border border-white/10 text-lotus text-sm font-sans font-medium flex justify-between items-center">
+                                <span>{activeSrv.duration || "Standard Session"}</span>
+                                <span className="text-brass font-bold">{activeSrv.price}</span>
                               </div>
                             );
                           }
@@ -1584,7 +1591,7 @@ export const Sections: React.FC<SectionsProps> = ({
                     </div>
                   </div>
                   <p className="text-xs font-sans text-stone/75 leading-relaxed font-light">
-                    * No oils or creams used in Dry massage. For Swedish/Aroma/Deep tissue, custom cold-pressed premium oils are infused. Steam bath adds are fully private.
+                    * No oils or creams used in Dry massage. For Swedish/Aroma/Deep tissue, custom cold-pressed premium oils are infused.
                   </p>
                 </div>
               )}
@@ -1627,11 +1634,6 @@ export const Sections: React.FC<SectionsProps> = ({
                     <p className="text-lotus/90 font-light">
                       📞 +91 74113 97005
                     </p>
-                  </div>
-
-                  <div className="space-y-1">
-                    <strong className="text-brass font-bold uppercase block text-xs">Email Queries</strong>
-                    <p className="text-stone font-light">bookings@pureblisswellness.in</p>
                   </div>
                 </div>
 

@@ -68,12 +68,13 @@ export const services: Service[] = [
   },
   {
     id: "ayurvedic-full-body",
-    name: "Ayurvedic Full Body Oil Massage",
-    description: "A traditional Kerala therapy using warm, medicated herbal oils to promote natural healing from within.",
-    duration: "60 Minutes (Excl. Head)",
+    name: "Ayurvedic Full Body Oil Massage (Incl. Head)",
+    description: "A traditional Kerala therapy using warm, medicated herbal oils to promote natural healing from within, complete with a soothing head massage.",
+    duration: "60 Minutes (Incl. Head)",
     price: "₹ 1,800/-",
     category: "Ayurvedic",
     benefits: [
+      "Includes rejuvenating scalp & head massage",
       "Detoxifies and rejuvenates the tissues",
       "Improves blood circulation & physical flexibility",
       "Reduces deep-seated stress & mental fatigue",
@@ -83,8 +84,8 @@ export const services: Service[] = [
   },
   {
     id: "ayurvedic-combo-steam",
-    name: "Head Massage + Full Body Ayurvedic + Steam",
-    description: "A complete wellness experience combining traditional Ayurvedic therapies for total mind-body balance. Includes a soothing head massage, full body Ayurvedic oil therapy, and a detoxifying warm steam session.",
+    name: "Head Massage + Full Body Ayurvedic Therapy",
+    description: "A complete wellness experience combining traditional Ayurvedic therapies for total mind-body balance. Includes a soothing head massage and full body Ayurvedic oil therapy.",
     category: "Ayurvedic",
     benefits: [
       "Relieves stress, migraine tendencies & mental fatigue",
@@ -162,24 +163,6 @@ export const services: Service[] = [
     ]
   },
   {
-    id: "add-on-steam",
-    name: "Steam Bath (Add-On)",
-    description: "Detoxify your body, improve circulation, and relax muscles in our private steam facility.",
-    category: "Add-Ons",
-    benefits: [
-      "Enhances deep absorption of medicated oils",
-      "Opens skin pores and flushes toxic compounds",
-      "Soothes airways and eases muscular stiffness",
-      "Highly customizable durations to suit your speed"
-    ],
-    options: [
-      { name: "Steam Bath 30 Minutes", duration: "30 Minutes", price: "₹ 1,200" },
-      { name: "Steam Bath 60 Minutes", duration: "60 Minutes", price: "₹ 1,400" },
-      { name: "Steam Bath 90 Minutes", duration: "90 Minutes", price: "₹ 2,000" },
-      { name: "Steam Bath 120 Minutes", duration: "120 Minutes", price: "₹ 2,500" }
-    ]
-  },
-  {
     id: "sadhana-pass",
     name: "Membership: Sadhana Pass",
     description: "3 Sessions/Month Pass. Ideal for regular monthly recovery and physical balance.",
@@ -196,13 +179,13 @@ export const services: Service[] = [
   {
     id: "prana-circle",
     name: "Membership: Prana Circle",
-    description: "6 Sessions/Month Pass + Steam Access. Our most popular comprehensive wellness pass.",
+    description: "6 Sessions/Month Pass. Our most popular comprehensive wellness pass.",
     duration: "Monthly Pass",
     price: "₹ 6,999/-",
     category: "Memberships",
     benefits: [
       "6 Sessions per Month",
-      "Includes Complimentary Steam Bath",
+      "Choice of Swedish, Deep Tissue or Ayurvedic",
       "Transferable to 1 Family/Friend Guest",
       "Discreet Priority Locker Suite"
     ]
@@ -210,15 +193,15 @@ export const services: Service[] = [
   {
     id: "samadhi-circle",
     name: "Membership: Samadhi Circle",
-    description: "10 Sessions/Month Pass + 4-Hands Upgrade. Ultimate luxury care for high-stress executives.",
+    description: "10 Sessions/Month Pass. Ultimate luxury care for high-stress executives.",
     duration: "Monthly Pass",
     price: "₹ 11,999/-",
     category: "Memberships",
     benefits: [
       "10 Sessions per Month",
-      "Includes 1 Four-Hands Synchronized Upgrade",
-      "Unlimited Organic Steam Bath Access",
-      "VIP Dedicated Male Therapist Assignment"
+      "Transferable to 1 Family/Friend Guest",
+      "VIP Dedicated Male Therapist Assignment",
+      "Priority Appointment Slot Booking"
     ]
   }
 ];

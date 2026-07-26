@@ -30,10 +30,10 @@ const indianTestimonials: Testimonial[] = [
     name: "Rajesh Sharma",
     title: "Senior Software Architect",
     location: "Jayanagar, Bengaluru",
-    therapy: "Ayurvedic Full Body + Sandalwood Steam",
+    therapy: "Ayurvedic Full Body Oil Therapy",
     rating: 5,
     comment:
-      "Authentic warm herbal oil treatment followed by a detoxifying steam bath. The male masseur understood classical Kerala stroke techniques perfectly. My muscle stiffness melted away. Pure Bliss is the premier male spa in JP Nagar.",
+      "Authentic warm herbal oil treatment followed by deep relaxation. The male masseur understood classical Kerala stroke techniques perfectly. My muscle stiffness melted away. Pure Bliss is the premier male spa in JP Nagar.",
     date: "Verified Visit • 3 days ago"
   },
   {

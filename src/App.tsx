@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { BackgroundStream } from "./components/BackgroundStream";
 import { Sections } from "./components/Sections";
-import { Flower2, Menu, X, Navigation, ExternalLink } from "lucide-react";
+import { Flower2, Menu, X, Navigation, ExternalLink, MapPin } from "lucide-react";
 
 export type TabType = "home" | "therapies" | "memberships" | "about" | "contact";
 
@@ -121,7 +121,7 @@ export default function App() {
                   therapies: "Therapies & Pricing",
                   memberships: "Memberships & Combos",
                   about: "About Sanctuary",
-                  contact: "Book & Location",
+                  contact: "Contact Us",
                 };
                 const isActive = activeTab === tab;
                 return (
@@ -222,6 +222,21 @@ export default function App() {
           activeSection={activeSection}
         />
       </main>
+
+      {/* STICKY FLOATING GOOGLE MAPS BUTTON ON ALL PAGES */}
+      <div className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-40">
+        <a
+          href="https://maps.app.goo.gl/e5pfzqbjtzHXpE9WA?g_st=awb"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-r from-brass via-amber-500 to-brass hover:from-amber-400 hover:to-brass text-[#0c0f0e] rounded-full flex items-center justify-center shadow-[0_0_25px_rgba(185,150,75,0.6)] transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer border border-amber-300/40"
+          id="sticky-google-maps-btn"
+          title="Open Location in Google Maps"
+          aria-label="Google Maps Location"
+        >
+          <MapPin size={22} className="text-[#0c0f0e] group-hover:scale-110 transition-transform" />
+        </a>
+      </div>
     </div>
   );
 }
