@@ -325,7 +325,7 @@ export const Sections: React.FC<SectionsProps> = ({
                     className="px-8 py-4 bg-emerald-600/30 hover:bg-emerald-600/45 text-emerald-300 border border-emerald-500/50 hover:border-emerald-400 font-sans font-black text-sm tracking-[0.2em] uppercase rounded-full transition-all duration-300 flex items-center justify-center gap-2.5 cursor-pointer shadow-xl"
                     id="reserve-session-hero-btn"
                   >
-                    <span>💬 RESERVE VIA WHATSAPP</span>
+                    <span>RESERVE YOUR SESSION</span>
                   </a>
                 </div>
               </motion.div>
@@ -532,7 +532,7 @@ export const Sections: React.FC<SectionsProps> = ({
                             rel="noopener noreferrer"
                             className="w-full py-2.5 bg-emerald-600/30 hover:bg-emerald-600/50 text-emerald-300 border border-emerald-500/40 rounded-xl font-sans text-xs font-bold tracking-wider uppercase flex items-center justify-center gap-1.5 transition-all text-center"
                           >
-                            <span>💬 WhatsApp Book</span>
+                            <span>Book Your Session</span>
                           </a>
                         </div>
                       </div>
@@ -871,7 +871,7 @@ export const Sections: React.FC<SectionsProps> = ({
             {/* Bottom Area */}
             <div className="z-10 flex justify-between items-end w-full border-t border-white/5 pt-4">
               <span className="text-xs font-bold font-sans text-stone/60 tracking-widest uppercase">
-                © 2026 PURE BLISS WELLNESS
+                PURE BLISS WELLNESS
               </span>
               <div className="text-right">
                 <span className="font-serif text-xl italic text-brass font-light leading-none block">
@@ -1478,7 +1478,7 @@ export const Sections: React.FC<SectionsProps> = ({
                       className="w-full py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-sans font-black text-xs md:text-sm tracking-widest uppercase rounded-full transition-all duration-300 shadow-xl flex items-center justify-center gap-2.5 cursor-pointer"
                       id="submit-booking-form-btn"
                     >
-                      <span>💬 RESERVE & CONFIRM VIA WHATSAPP</span>
+                      <span>BOOK YOUR SESSION</span>
                     </button>
                   </motion.form>
                 ) : (
