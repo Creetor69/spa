@@ -44,7 +44,7 @@ export const services: Service[] = [
     ],
     options: [
       { name: "Swedish / Aroma / Sports + Scrub", duration: "90 Minutes", price: "₹ 2,200/-" },
-      { name: "60 Minutes (Excl. Head)", duration: "60 Minutes", price: "₹ 1,500/-" },
+      { name: "60 Minutes (Incl. Head)", duration: "60 Minutes", price: "₹ 1,500/-" },
       { name: "90 Minutes (Incl. Head)", duration: "90 Minutes", price: "₹ 2,000/-" }
     ]
   },
@@ -62,7 +62,7 @@ export const services: Service[] = [
     ],
     options: [
       { name: "Deep Tissue + Scrub", duration: "90 Minutes", price: "₹ 2,500/-" },
-      { name: "60-Min Session (Excl. Head)", duration: "60 Minutes", price: "₹ 1,799/-" },
+      { name: "60-Min Session (Incl. Head)", duration: "60 Minutes", price: "₹ 1,799/-" },
       { name: "90-Min Session (Incl. Head)", duration: "90 Minutes", price: "₹ 2,300/-" }
     ]
   },
@@ -84,7 +84,7 @@ export const services: Service[] = [
   },
   {
     id: "ayurvedic-combo-steam",
-    name: "Head Massage + Full Body Ayurvedic Therapy",
+    name: "Full Body Ayurvedic Massage + Head Massage",
     description: "A complete wellness experience combining traditional Ayurvedic therapies for total mind-body balance. Includes a soothing head massage and full body Ayurvedic oil therapy.",
     category: "Ayurvedic",
     benefits: [
@@ -94,14 +94,14 @@ export const services: Service[] = [
       "Promotes deep, restful sleep and rejuvenation"
     ],
     options: [
-      { name: "60-Min Session (Excl. Head)", duration: "60 Minutes", price: "₹ 2,000/-" },
+      { name: "60-Min Session (Incl. Head)", duration: "60 Minutes", price: "₹ 2,000/-" },
       { name: "90-Min Session (Incl. Head)", duration: "90 Minutes", price: "₹ 2,250/-" }
     ]
   },
   {
     id: "massage-scrub-combos",
-    name: "Massage + Scrub Combos",
-    description: "A revitalizing session to relax muscles and refresh skin. Excludes head massage.",
+    name: "Full Body Massage + Scrub",
+    description: "A revitalizing session to relax muscles and refresh skin, including head massage.",
     category: "Combos",
     benefits: [
       "Revitalizes tired muscles and deeply exfoliates the skin",
@@ -128,7 +128,7 @@ export const services: Service[] = [
       "Deep muscle relief and total systemic recovery"
     ],
     options: [
-      { name: "60-Min Session (Excl. Head)", duration: "60 Minutes", price: "₹ 3,000/-" },
+      { name: "60-Min Session (Incl. Head)", duration: "60 Minutes", price: "₹ 3,000/-" },
       { name: "90-Min Session (Incl. Head)", duration: "90 Minutes", price: "₹ 4,000/-" }
     ]
   },
