@@ -63,7 +63,7 @@ const testimonialsData: Testimonial[] = [
 const membershipsData: MembershipPlan[] = [
   {
     id: "m1",
-    name: "Sadhana Pass",
+    name: "Silver Dew",
     price: "₹6,500",
     period: "Month",
     description: "A monthly ritual of rejuvenation to anchor your busy modern schedule.",
@@ -75,7 +75,7 @@ const membershipsData: MembershipPlan[] = [
   },
   {
     id: "m2",
-    name: "Prana Circle",
+    name: "Golden Radiance",
     price: "₹18,500",
     period: "Quarter",
     description: "Align your physical elements with the seasonal rhythms.",
@@ -88,7 +88,7 @@ const membershipsData: MembershipPlan[] = [
   },
   {
     id: "m3",
-    name: "Samadhi Circle",
+    name: "Diamond Bliss",
     price: "₹65,000",
     period: "Year",
     description: "A complete annual commitment to pure vitality and structural renewal.",
@@ -831,7 +831,7 @@ export const Sections: React.FC<SectionsProps> = ({
                         Pure Bliss Wellness, No. 583, 1st Floor, 16th Cross, Sarakki, JP Nagar 6th Phase, Bengaluru - 560078
                       </span>
                       <a
-                        href="https://maps.app.goo.gl/e5pfzqbjtzHXpE9WA?g_st=awb"
+                        href="https://maps.app.goo.gl/wWJ7FFXRyY7FjwfcA"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brass/15 hover:bg-brass/25 border border-brass/30 text-brass text-xs font-bold tracking-wider uppercase transition-all duration-300"
@@ -1082,15 +1082,15 @@ export const Sections: React.FC<SectionsProps> = ({
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-5xl mx-auto items-stretch mb-16">
             {membershipsData.map((m) => {
               const planBorders: Record<string, string> = {
-                "Sadhana Pass": "border-white/10 bg-gradient-to-b from-[#111] to-[#0c0f0e]",
-                "Prana Circle": "border-brass/35 bg-gradient-to-b from-amber-950/20 to-[#0c0f0e] shadow-2xl",
-                "Samadhi Circle": "border-[#9d174d]/30 bg-gradient-to-b from-purple-950/25 to-[#0c0f0e]"
+                "Silver Dew": "border-white/10 bg-gradient-to-b from-[#111] to-[#0c0f0e]",
+                "Golden Radiance": "border-brass/35 bg-gradient-to-b from-amber-950/20 to-[#0c0f0e] shadow-2xl",
+                "Diamond Bliss": "border-[#9d174d]/30 bg-gradient-to-b from-purple-950/25 to-[#0c0f0e]"
               };
 
               const planBadgeColor: Record<string, string> = {
-                "Sadhana Pass": "bg-white/5 text-lotus",
-                "Prana Circle": "bg-brass/20 text-brass border border-brass/30",
-                "Samadhi Circle": "bg-purple-500/15 text-purple-400 border border-purple-500/25"
+                "Silver Dew": "bg-white/5 text-lotus",
+                "Golden Radiance": "bg-brass/20 text-brass border border-brass/30",
+                "Diamond Bliss": "bg-purple-500/15 text-purple-400 border border-purple-500/25"
               };
 
               const borderTheme = planBorders[m.name] || "border-white/5 bg-stone-950";
@@ -1102,8 +1102,8 @@ export const Sections: React.FC<SectionsProps> = ({
                   className={`p-8 rounded-3xl border ${borderTheme} flex flex-col justify-between text-left group transition-all duration-300 relative overflow-hidden`}
                   id={`membership-${m.id}`}
                 >
-                  {/* Highlight for Prana Circle */}
-                  {m.name === "Prana Circle" && (
+                  {/* Highlight for Golden Radiance */}
+                  {m.name === "Golden Radiance" && (
                     <div className="absolute top-0 right-0 px-3.5 py-1.5 bg-brass text-[#0c0f0e] text-xs tracking-widest uppercase font-black rounded-bl-xl">
                       POPULAR CHOICE
                     </div>
@@ -1610,7 +1610,7 @@ export const Sections: React.FC<SectionsProps> = ({
                       Pure Bliss Wellness, No. 583, 1st Floor, 16th Cross, Sarakki, JP Nagar 6th Phase, Bengaluru - 560078
                     </p>
                     <a
-                      href="https://maps.app.goo.gl/e5pfzqbjtzHXpE9WA?g_st=awb"
+                      href="https://maps.app.goo.gl/wWJ7FFXRyY7FjwfcA"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brass/15 hover:bg-brass/25 border border-brass/30 text-brass text-xs font-bold tracking-wider uppercase transition-all duration-300"
@@ -1637,31 +1637,31 @@ export const Sections: React.FC<SectionsProps> = ({
                   </div>
                 </div>
 
-                {/* Interactive Map Link Container */}
-                <a
-                  href="https://maps.app.goo.gl/e5pfzqbjtzHXpE9WA?g_st=awb"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="relative w-full h-48 rounded-2xl overflow-hidden border border-brass/20 group cursor-pointer block"
-                  id="contact-map-widget-link"
-                >
-                  <div className="absolute inset-0 bg-[#161a19] group-hover:bg-[#1f2623] transition-colors flex flex-col justify-center items-center text-center p-4 space-y-2.5">
-                    {/* SVG Vector Map Motif */}
-                    <svg viewBox="0 0 100 100" className="w-12 h-12 stroke-brass/40 stroke-[0.5] fill-none group-hover:scale-110 transition-transform">
-                      <rect x="10" y="10" width="80" height="80" rx="4" />
-                      <line x1="10" y1="50" x2="90" y2="50" />
-                      <line x1="50" y1="10" x2="50" y2="90" />
-                      <circle cx="50" cy="50" r="10" stroke="#B9964B" strokeOpacity="0.8" fill="#B9964B" fillOpacity="0.2" className="animate-pulse" />
-                      <circle cx="50" cy="50" r="2.5" fill="#B9964B" />
-                    </svg>
-                    <span className="font-serif text-base text-brass italic">GPS Coordinates & Direct Navigation</span>
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brass text-[#0c0f0e] font-sans text-xs tracking-wider uppercase font-black group-hover:scale-105 transition-all shadow-lg">
-                      <Navigation size={13} />
-                      <span>Open Google Maps</span>
-                      <ExternalLink size={12} />
-                    </div>
-                  </div>
-                </a>
+                {/* Embedded Interactive Google Map */}
+                <div className="relative w-full rounded-2xl overflow-hidden border border-brass/30 shadow-2xl group space-y-3">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3889.029282936329!2d77.57447127507538!3d12.90583858740347!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTLCsDU0JzIxLjAiTiA3N8KwMzQnMzcuNCJF!5e0!3m2!1sen!2sin!4v1785245243153!5m2!1sen!2sin"
+                    width="100%"
+                    height="260"
+                    style={{ border: 0 }}
+                    allowFullScreen={true}
+                    loading="lazy"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    className="w-full h-64 rounded-2xl bg-stone-900"
+                    title="Pure Bliss Wellness Google Maps Location"
+                  ></iframe>
+                  <a
+                    href="https://maps.app.goo.gl/wWJ7FFXRyY7FjwfcA"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-2.5 bg-brass/15 hover:bg-brass text-brass hover:text-[#0c0f0e] border border-brass/30 font-sans text-xs tracking-wider uppercase font-black rounded-xl transition-all flex items-center justify-center gap-2"
+                    id="open-gmaps-btn"
+                  >
+                    <Navigation size={13} />
+                    <span>Open in Google Maps App</span>
+                    <ExternalLink size={12} />
+                  </a>
+                </div>
               </div>
 
             </div>

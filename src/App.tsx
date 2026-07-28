@@ -141,7 +141,7 @@ export default function App() {
 
             <div className="mt-8 pt-6 border-t border-white/10 w-full max-w-xs space-y-3 font-sans text-xs">
               <a
-                href="https://maps.app.goo.gl/e5pfzqbjtzHXpE9WA?g_st=awb"
+                href="https://maps.app.goo.gl/wWJ7FFXRyY7FjwfcA"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full py-3 bg-brass text-[#0c0f0e] rounded-full font-bold uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-lotus transition-all shadow-lg"
@@ -226,7 +226,7 @@ export default function App() {
       {/* STICKY FLOATING GOOGLE MAPS BUTTON ON ALL PAGES */}
       <div className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-40">
         <a
-          href="https://maps.app.goo.gl/e5pfzqbjtzHXpE9WA?g_st=awb"
+          href="https://maps.app.goo.gl/wWJ7FFXRyY7FjwfcA"
           target="_blank"
           rel="noopener noreferrer"
           className="group w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-r from-brass via-amber-500 to-brass hover:from-amber-400 hover:to-brass text-[#0c0f0e] rounded-full flex items-center justify-center shadow-[0_0_25px_rgba(185,150,75,0.6)] transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer border border-amber-300/40"

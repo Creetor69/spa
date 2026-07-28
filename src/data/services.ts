@@ -164,7 +164,7 @@ export const services: Service[] = [
   },
   {
     id: "sadhana-pass",
-    name: "Membership: Sadhana Pass",
+    name: "Membership: Silver Dew",
     description: "3 Sessions/Month Pass. Ideal for regular monthly recovery and physical balance.",
     duration: "Monthly Pass",
     price: "₹ 3,999/-",
@@ -178,7 +178,7 @@ export const services: Service[] = [
   },
   {
     id: "prana-circle",
-    name: "Membership: Prana Circle",
+    name: "Membership: Golden Radiance",
     description: "6 Sessions/Month Pass. Our most popular comprehensive wellness pass.",
     duration: "Monthly Pass",
     price: "₹ 6,999/-",
@@ -192,7 +192,7 @@ export const services: Service[] = [
   },
   {
     id: "samadhi-circle",
-    name: "Membership: Samadhi Circle",
+    name: "Membership: Diamond Bliss",
     description: "10 Sessions/Month Pass. Ultimate luxury care for high-stress executives.",
     duration: "Monthly Pass",
     price: "₹ 11,999/-",
