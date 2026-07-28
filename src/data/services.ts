@@ -67,22 +67,6 @@ export const services: Service[] = [
     ]
   },
   {
-    id: "ayurvedic-full-body",
-    name: "Ayurvedic Full Body Oil Massage (Incl. Head)",
-    description: "A traditional Kerala therapy using warm, medicated herbal oils to promote natural healing from within, complete with a soothing head massage.",
-    duration: "60 Minutes (Incl. Head)",
-    price: "₹ 1,800/-",
-    category: "Ayurvedic",
-    benefits: [
-      "Includes rejuvenating scalp & head massage",
-      "Detoxifies and rejuvenates the tissues",
-      "Improves blood circulation & physical flexibility",
-      "Reduces deep-seated stress & mental fatigue",
-      "Restores natural mind-body element balance",
-      "Excellent for holistic wellness seekers and chronic pain relief"
-    ]
-  },
-  {
     id: "ayurvedic-combo-steam",
     name: "Full Body Ayurvedic Massage + Head Massage",
     description: "A complete wellness experience combining traditional Ayurvedic therapies for total mind-body balance. Includes a soothing head massage and full body Ayurvedic oil therapy.",
