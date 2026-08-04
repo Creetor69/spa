@@ -250,11 +250,11 @@ export const Sections: React.FC<SectionsProps> = ({
                 className="space-y-6"
               >
                 <div className="flex flex-wrap items-center gap-2.5">
-                  <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brass/20 border border-brass/40 text-brass text-xs md:text-sm tracking-[0.2em] uppercase font-black shadow-lg">
-                    <Sparkles size={14} className="text-brass animate-pulse" />
-                    <span>PREMIUM MALE-TO-MALE SPA IN JP NAGAR</span>
+                  <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-brass via-amber-400 to-brass text-[#0c0f0e] border-2 border-amber-300 text-xs md:text-sm tracking-[0.2em] uppercase font-black shadow-[0_0_25px_rgba(217,160,52,0.6)] transform hover:scale-105 transition-all">
+                    <Sparkles size={16} className="text-[#0c0f0e] animate-bounce shrink-0" />
+                    <strong className="font-black text-[#0c0f0e]">PREMIUM MALE-TO-MALE SPA IN JP NAGAR</strong>
                   </span>
-                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-stone text-xs tracking-wider uppercase font-bold">
+                  <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-black/60 border border-brass/40 text-stone text-xs tracking-wider uppercase font-bold shadow-md backdrop-blur-md">
                     <MapPin size={13} className="text-brass" />
                     <span>1st Floor, No. 583, Sarakki, JP Nagar 6th Phase</span>
                   </div>
@@ -266,12 +266,12 @@ export const Sections: React.FC<SectionsProps> = ({
                 </h1>
                 
                 <p className="font-sans text-base md:text-lg lg:text-xl text-lotus/90 leading-relaxed max-w-3xl tracking-wide font-light">
-                  Pure Bliss Wellness is JP Nagar's premier male-to-male spa, dedicated to providing professional, discreet, and tailored massage therapies. We offer a modern sanctuary where men can genuinely unwind and recharge on <strong>1st Floor, No. 583, 16th Cross, Sarakki, JP Nagar 6th Phase</strong> (Near JP Nagar Metro Station).
+                  Pure Bliss Wellness is <strong>JP Nagar's premier male-to-male spa</strong>, dedicated to providing professional, discreet, and tailored massage therapies. We offer a modern sanctuary where men can genuinely unwind and recharge on <strong>1st Floor, No. 583, 16th Cross, Sarakki, JP Nagar 6th Phase</strong> (Near JP Nagar Metro Station).
                 </p>
 
                 {/* FEATURED LANDING BIMAGE CARD - MALE TO MALE SPA HIGHLIGHT */}
-                <div className="mt-6 p-4 md:p-6 rounded-3xl bg-gradient-to-r from-brass/15 via-white/5 to-transparent border border-brass/30 shadow-2xl backdrop-blur-md max-w-4xl grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-                  <div className="md:col-span-5 relative rounded-2xl overflow-hidden h-48 md:h-44 border border-brass/20 shadow-xl group">
+                <div className="mt-6 p-4 md:p-6 rounded-3xl bg-gradient-to-r from-brass/30 via-amber-950/50 to-black/80 border-2 border-brass/60 shadow-[0_0_35px_rgba(217,160,52,0.3)] backdrop-blur-md max-w-4xl grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                  <div className="md:col-span-5 relative rounded-2xl overflow-hidden h-48 md:h-44 border border-brass/40 shadow-xl group">
                     <img
                       src="https://i.ibb.co/kg6pkpkv/Whats-App-Image-2026-07-25-at-18-30-06.jpg"
                       alt="Premium Male to Male Spa JP Nagar"
@@ -279,7 +279,7 @@ export const Sections: React.FC<SectionsProps> = ({
                       referrerPolicy="no-referrer"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0c0f0e] via-transparent to-transparent opacity-80" />
-                    <div className="absolute bottom-3 left-3 right-3 px-3 py-1.5 rounded-lg bg-[#0c0f0e]/85 border border-brass/30 text-center">
+                    <div className="absolute bottom-3 left-3 right-3 px-3 py-1.5 rounded-lg bg-[#0c0f0e]/90 border border-brass/50 text-center shadow-lg">
                       <span className="font-sans text-[10px] sm:text-xs font-bold uppercase tracking-widest text-brass">
                         📍 JP Nagar 6th Phase Suite
                       </span>
@@ -287,10 +287,10 @@ export const Sections: React.FC<SectionsProps> = ({
                   </div>
 
                   <div className="md:col-span-7 space-y-2 text-left">
-                    <span className="text-xs font-bold uppercase tracking-widest text-brass block">
-                      ✨ Certified Professional Male Therapists
+                    <span className="inline-block px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-brass via-amber-400 to-brass text-[#0c0f0e] text-xs font-black uppercase tracking-widest shadow-[0_0_15px_rgba(217,160,52,0.5)]">
+                      ✨ PREMIUM MALE-TO-MALE SPA IN JP NAGAR
                     </span>
-                    <h3 className="font-serif text-xl sm:text-2xl text-lotus font-normal">
+                    <h3 className="font-serif text-xl sm:text-2xl text-lotus font-normal pt-1">
                       Discreet, Hygienic & Tailored Male Massages
                     </h3>
                     <p className="text-xs sm:text-sm text-lotus/80 font-light leading-relaxed">
@@ -1248,7 +1248,7 @@ export const Sections: React.FC<SectionsProps> = ({
                 <span className="italic text-brass font-normal">Men's Wellness</span>
               </h1>
               <p className="font-sans text-base md:text-lg text-lotus/85 leading-relaxed font-light">
-                Pure Bliss Wellness is JP Nagar's premier male-to-male spa, dedicated to providing professional, discreet, and tailored massage therapies. We offer a modern sanctuary where men can genuinely unwind and recharge.
+                Pure Bliss Wellness is <strong>JP Nagar's premier male-to-male spa</strong>, dedicated to providing professional, discreet, and tailored massage therapies. We offer a modern sanctuary where men can genuinely unwind and recharge.
               </p>
               <p className="font-sans text-base md:text-lg text-lotus/85 leading-relaxed font-light">
                 Located on the 1st Floor at No. 583, 16th Cross, Sarakki, JP Nagar 6th Phase (Near to JP Nagar Metro Station), our private hygienic suites offer safe, certified professional care using premium organic massage oils.
@@ -1277,9 +1277,11 @@ export const Sections: React.FC<SectionsProps> = ({
               <div className="absolute top-4 left-4 px-3.5 py-1.5 rounded-full bg-brass/20 border border-brass/40 text-brass text-xs font-bold uppercase tracking-wider backdrop-blur-md">
                 ✨ JP Nagar Male Spa Suite
               </div>
-              <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-[#0c0f0e]/85 border border-white/10 text-center">
-                <span className="font-serif text-sm italic text-brass block">Pure Bliss Wellness — 1st Floor, No. 583, JP Nagar 6th Phase</span>
-                <span className="font-sans text-[11px] text-stone uppercase tracking-wider font-bold">Bangalore's Premier Male-to-Male Spa</span>
+              <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-gradient-to-r from-brass/30 via-amber-950/90 to-brass/30 border-2 border-brass/60 text-center shadow-[0_0_20px_rgba(217,160,52,0.35)] backdrop-blur-md">
+                <span className="font-serif text-sm italic text-amber-200 block mb-1">Pure Bliss Wellness — 1st Floor, No. 583, JP Nagar 6th Phase</span>
+                <span className="inline-block px-3 py-1 rounded-md bg-gradient-to-r from-brass via-amber-400 to-brass text-[#0c0f0e] text-[11px] uppercase tracking-wider font-black shadow-md">
+                  PREMIUM MALE-TO-MALE SPA IN JP NAGAR
+                </span>
               </div>
             </div>
 
@@ -1769,7 +1771,7 @@ export const Sections: React.FC<SectionsProps> = ({
               </span>
             </div>
             <p className="text-xs text-stone font-light max-w-sm leading-relaxed">
-              Discreet male body massage spa & traditional Ayurvedic sanctuary in JP Nagar 6th Phase, Bengaluru.
+              Discreet <strong>Premium Male-to-Male Spa in JP Nagar</strong> & traditional Ayurvedic sanctuary in JP Nagar 6th Phase, Bengaluru.
             </p>
           </div>
 
