@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Star, ChevronLeft, ChevronRight, Quote, ShieldCheck, UserCheck } from "lucide-react";
+import { Star, ChevronLeft, ChevronRight, Quote, ShieldCheck, UserCheck, ExternalLink } from "lucide-react";
 
 export interface Testimonial {
   id: string;
@@ -213,6 +213,36 @@ export const ClientTestimonials: React.FC = () => {
             >
               <ChevronRight size={18} />
             </button>
+          </div>
+        </div>
+
+        {/* Google Review Callout */}
+        <div className="pt-2 flex flex-col items-center justify-center gap-3">
+          <div className="p-6 rounded-2xl bg-gradient-to-r from-brass/10 via-amber-500/10 to-brass/10 border border-brass/30 max-w-xl w-full text-center space-y-3 shadow-xl">
+            <div className="flex justify-center items-center gap-1.5 text-brass">
+              <Star size={16} className="fill-brass" />
+              <Star size={16} className="fill-brass" />
+              <Star size={16} className="fill-brass" />
+              <Star size={16} className="fill-brass" />
+              <Star size={16} className="fill-brass" />
+            </div>
+            <h3 className="font-serif text-lg sm:text-xl text-lotus font-bold">
+              Visited Pure Bliss Wellness Recently?
+            </h3>
+            <p className="font-sans text-xs sm:text-sm text-stone font-light">
+              Your valuable feedback helps fellow patrons experience authentic rejuvenation. Please share your review on Google!
+            </p>
+            <a
+              href="https://share.google/JNdA5xOx7a3MzX1oF"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-full bg-gradient-to-r from-brass via-amber-500 to-brass hover:from-amber-400 hover:to-brass text-[#0c0f0e] font-sans font-black text-xs sm:text-sm tracking-wider uppercase shadow-[0_0_20px_rgba(185,150,75,0.4)] transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer border border-amber-300/40"
+              id="google-review-btn"
+            >
+              <Star size={16} className="fill-[#0c0f0e]" />
+              <span>Leave Us a Review on Google</span>
+              <ExternalLink size={14} />
+            </a>
           </div>
         </div>
 

@@ -20,7 +20,8 @@ import {
   Award,
   DollarSign,
   Navigation,
-  ExternalLink
+  ExternalLink,
+  Star
 } from "lucide-react";
 import { TabType } from "../App";
 import { services } from "../data/services";
@@ -859,6 +860,39 @@ export const Sections: React.FC<SectionsProps> = ({
                       <span className="text-lotus/90 font-light">9:00 AM - 10:00 PM (Everyday)</span>
                     </div>
                   </div>
+
+                  {/* Social Media Links */}
+                  <div className="pt-2 border-t border-white/5 space-y-2">
+                    <strong className="text-brass font-bold uppercase block text-xs">Connect With Us</strong>
+                    <div className="grid grid-cols-2 gap-2">
+                      <a
+                        href="https://www.facebook.com/share/18yZoqjYDE/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="py-2 px-3 rounded-xl bg-blue-600/15 hover:bg-blue-600/30 text-blue-400 border border-blue-500/30 font-bold uppercase text-xs tracking-wider flex items-center justify-center gap-2 transition-all hover:scale-102"
+                        id="home-facebook-link"
+                      >
+                        <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                        <span>Facebook</span>
+                        <ExternalLink size={11} />
+                      </a>
+                      <a
+                        href="https://www.instagram.com/pureblisswellness.jpnagar?utm_source=qr&igsh=MWhpYms4bGc5b3ZzbQ=="
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="py-2 px-3 rounded-xl bg-pink-600/15 hover:bg-pink-600/30 text-pink-400 border border-pink-500/30 font-bold uppercase text-xs tracking-wider flex items-center justify-center gap-2 transition-all hover:scale-102"
+                        id="home-instagram-link"
+                      >
+                        <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                        <span>Instagram</span>
+                        <ExternalLink size={11} />
+                      </a>
+                    </div>
+                  </div>
                 </div>
 
                 <div className="border-t border-white/5 pt-4 text-xs font-sans text-stone tracking-wider uppercase font-bold text-center">
@@ -1635,6 +1669,39 @@ export const Sections: React.FC<SectionsProps> = ({
                       📞 +91 74113 97005
                     </p>
                   </div>
+
+                  {/* Connect on Social Media */}
+                  <div className="pt-2 space-y-2 border-t border-white/5">
+                    <strong className="text-brass font-bold uppercase block text-xs">Follow Us On Social Media</strong>
+                    <div className="grid grid-cols-2 gap-2.5">
+                      <a
+                        href="https://www.facebook.com/share/18yZoqjYDE/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="py-2.5 px-3 rounded-xl bg-blue-600/15 hover:bg-blue-600/30 text-blue-400 border border-blue-500/30 font-bold uppercase text-xs tracking-wider flex items-center justify-center gap-2 transition-all hover:scale-102"
+                        id="contact-facebook-link"
+                      >
+                        <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                        <span>Facebook</span>
+                        <ExternalLink size={11} />
+                      </a>
+                      <a
+                        href="https://www.instagram.com/pureblisswellness.jpnagar?utm_source=qr&igsh=MWhpYms4bGc5b3ZzbQ=="
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="py-2.5 px-3 rounded-xl bg-pink-600/15 hover:bg-pink-600/30 text-pink-400 border border-pink-500/30 font-bold uppercase text-xs tracking-wider flex items-center justify-center gap-2 transition-all hover:scale-102"
+                        id="contact-instagram-link"
+                      >
+                        <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                        <span>Instagram</span>
+                        <ExternalLink size={11} />
+                      </a>
+                    </div>
+                  </div>
                 </div>
 
                 {/* Embedded Interactive Google Map */}
@@ -1650,17 +1717,30 @@ export const Sections: React.FC<SectionsProps> = ({
                     className="w-full h-64 rounded-2xl bg-stone-900"
                     title="Pure Bliss Wellness Google Maps Location"
                   ></iframe>
-                  <a
-                    href="https://maps.app.goo.gl/wWJ7FFXRyY7FjwfcA"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full py-2.5 bg-brass/15 hover:bg-brass text-brass hover:text-[#0c0f0e] border border-brass/30 font-sans text-xs tracking-wider uppercase font-black rounded-xl transition-all flex items-center justify-center gap-2"
-                    id="open-gmaps-btn"
-                  >
-                    <Navigation size={13} />
-                    <span>Open in Google Maps App</span>
-                    <ExternalLink size={12} />
-                  </a>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <a
+                      href="https://maps.app.goo.gl/wWJ7FFXRyY7FjwfcA"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full py-2.5 bg-brass/15 hover:bg-brass text-brass hover:text-[#0c0f0e] border border-brass/30 font-sans text-xs tracking-wider uppercase font-black rounded-xl transition-all flex items-center justify-center gap-2"
+                      id="open-gmaps-btn"
+                    >
+                      <Navigation size={13} />
+                      <span>Open Google Maps</span>
+                      <ExternalLink size={12} />
+                    </a>
+                    <a
+                      href="https://share.google/JNdA5xOx7a3MzX1oF"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full py-2.5 bg-amber-500/15 hover:bg-amber-500 text-amber-400 hover:text-[#0c0f0e] border border-amber-500/30 font-sans text-xs tracking-wider uppercase font-black rounded-xl transition-all flex items-center justify-center gap-2"
+                      id="contact-google-review-btn"
+                    >
+                      <Star size={13} className="fill-current" />
+                      <span>Write Google Review</span>
+                      <ExternalLink size={12} />
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -1670,6 +1750,75 @@ export const Sections: React.FC<SectionsProps> = ({
 
         </section>
       )}
+
+      {/* GLOBAL FOOTER */}
+      <footer className="w-full bg-[#080b0a] border-t border-white/10 py-12 px-6 md:px-12 mt-12 text-center text-sans relative z-10">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-2">
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 rounded-full overflow-hidden border border-brass/80 shrink-0 bg-[#0c0f0e]">
+                <img
+                  src="https://i.ibb.co/93CPrBWC/global-000054e2ea70026d-0000015f-2-000054e2ea70026d-0000000000000001-7c3179df6256d115-00000212c420.png"
+                  alt="Pure Bliss Wellness Logo"
+                  className="w-full h-full object-cover scale-95"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+              <span className="font-serif text-lg tracking-widest text-lotus font-bold uppercase">
+                Pure Bliss Wellness
+              </span>
+            </div>
+            <p className="text-xs text-stone font-light max-w-sm leading-relaxed">
+              Discreet male body massage spa & traditional Ayurvedic sanctuary in JP Nagar 6th Phase, Bengaluru.
+            </p>
+          </div>
+
+          {/* Social Links & Quick Actions */}
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <a
+              href="https://www.facebook.com/share/18yZoqjYDE/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 rounded-full bg-blue-600/20 hover:bg-blue-600/35 text-blue-400 border border-blue-500/30 text-xs font-bold uppercase tracking-wider flex items-center gap-2 transition-all hover:scale-105"
+              id="footer-facebook-link"
+            >
+              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+              <span>Facebook</span>
+            </a>
+
+            <a
+              href="https://www.instagram.com/pureblisswellness.jpnagar?utm_source=qr&igsh=MWhpYms4bGc5b3ZzbQ=="
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 rounded-full bg-pink-600/20 hover:bg-pink-600/35 text-pink-400 border border-pink-500/30 text-xs font-bold uppercase tracking-wider flex items-center gap-2 transition-all hover:scale-105"
+              id="footer-instagram-link"
+            >
+              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+              <span>Instagram</span>
+            </a>
+
+            <a
+              href="https://share.google/JNdA5xOx7a3MzX1oF"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 rounded-full bg-amber-500/20 hover:bg-amber-500/35 text-amber-400 border border-amber-500/30 text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 transition-all hover:scale-105"
+              id="footer-google-review-link"
+            >
+              <Star size={13} className="fill-current" />
+              <span>Google Reviews</span>
+            </a>
+          </div>
+        </div>
+
+        <div className="max-w-6xl mx-auto pt-8 mt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-stone/60 text-xs">
+          <p>© {new Date().getFullYear()} Pure Bliss Wellness. All rights reserved.</p>
+          <p>No. 583, 1st Floor, 16th Cross, Sarakki, JP Nagar 6th Phase, Bengaluru • +91 74113 97005</p>
+        </div>
+      </footer>
 
     </div>
   );
